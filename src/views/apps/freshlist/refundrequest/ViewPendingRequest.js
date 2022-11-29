@@ -2,8 +2,6 @@ import React from "react";
 import { Card, CardBody, Media, Row, Col, Button, Label, CustomInput } from "reactstrap";
 import axiosConfig from "../../../../axiosConfig";
 import { history } from "../../../../history";
-import "../../../../assets/css/main.css"
-
 class ViewPendingRequest extends React.Component {
     constructor (props) {
         super(props);

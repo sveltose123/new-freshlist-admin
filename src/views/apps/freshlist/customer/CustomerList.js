@@ -139,42 +139,42 @@ class CustomerList extends React.Component {
             },
         ],
     };
-    async componentDidMount() {
-        await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
-            .then((response) => {
-                let rowData = response.data.data;
-                console.log(rowData);
-                this.setState({ rowData });
-            });
-    }
-    async componentDidMount() {
-        await axios
-            .get("http://35.154.86.59/api/user/allcustomer")
-            .then((response) => {
-                let rowData = response.data.data;
-                console.log(rowData);
-                this.setState({ rowData });
-            });
-    }
     // async componentDidMount() {
-    //   let { id } = this.props.match.params;
-    //   await axios
-    //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
-    //       headers: {
-    //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
-    //       },
-    //     })}
-    async runthisfunction(id) {
-        console.log(id);
-        await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
-            (response) => {
-                console.log(response);
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
-    }
+    //     await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
+    //         .then((response) => {
+    //             let rowData = response.data.data;
+    //             console.log(rowData);
+    //             this.setState({ rowData });
+    //         });
+    // }
+    // async componentDidMount() {
+    //     await axios
+    //         .get("http://35.154.86.59/api/user/allcustomer")
+    //         .then((response) => {
+    //             let rowData = response.data.data;
+    //             console.log(rowData);
+    //             this.setState({ rowData });
+    //         });
+    // }
+    // // async componentDidMount() {
+    // //   let { id } = this.props.match.params;
+    // //   await axios
+    // //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
+    // //       headers: {
+    // //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
+    // //       },
+    // //     })}
+    // async runthisfunction(id) {
+    //     console.log(id);
+    //     await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
+    //         (response) => {
+    //             console.log(response);
+    //         },
+    //         (error) => {
+    //             console.log(error);
+    //         }
+    //     );
+    // }
     onGridReady = (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
@@ -211,14 +211,6 @@ class CustomerList extends React.Component {
                                         Customer List
                                     </h1>
                                 </Col>
-                                {/* <Col>
-                    <Button
-                        className=" btn btn-danger float-right"
-                        onClick={() => history.push("/app/customer/addCustomer")}
-                        >
-                        Add Customer
-                    </Button>
-                  </Col> */}
                             </Row>
                             <CardBody>
                                 {this.state.rowData === null ? null : (

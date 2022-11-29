@@ -1,6 +1,6 @@
 module.exports = config => {
   require('react-app-rewire-postcss')(config, {
-    plugins: loader => [
+     plugins: loader => [
       require('postcss-rtl')()
     ]
   });

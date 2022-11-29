@@ -44,7 +44,7 @@ class StoreList extends React.Component {
         // headerCheckboxSelectionFilteredOnly: true,
         // headerCheckboxSelection: true,
       },
-      
+
       {
         headerName: "Logo ",
         field: "shoplogo_img",
@@ -149,7 +149,7 @@ class StoreList extends React.Component {
             <div>
               <span>
                 {params.data.phone_no},{params.data.altphone_no},
-            
+
               </span>
             </div>
           );
@@ -443,7 +443,7 @@ class StoreList extends React.Component {
           ) : null;
         },
       },
-    
+
 
       {
         headerName: "Actions",
@@ -459,7 +459,7 @@ class StoreList extends React.Component {
                   history.push(`/app/store/stores/viewStore/${params.data._id}`)
                 }
               />
-{/*            
+              {/*            
       //         <Edit
       //           className="mr-50"
       //           size={20}
@@ -476,25 +476,25 @@ class StoreList extends React.Component {
               />
             </div>
           );
-         },
+        },
       },
     ],
   };
-  async componentDidMount() {
-    await axiosConfig.get(`/getonestore/${id}`).then((response) => {
-      let rowData = response.data.data;
-      console.log(rowData);
-      this.setState({ rowData });
-    });
-  }
+  // async componentDidMount() {
+  //   await axiosConfig.get(`/getonestore/${id}`).then((response) => {
+  //     let rowData = response.data.data;
+  //     console.log(rowData);
+  //     this.setState({ rowData });
+  //   });
+  // }
 
-  async componentDidMount() {
-    await axiosConfig.get("/getstore").then((response) => {
-      const rowData = response.data.data;
-      console.log(rowData);
-      this.setState({ rowData });
-    });
-  }
+  // async componentDidMount() {
+  //   await axiosConfig.get("/getstore").then((response) => {
+  //     const rowData = response.data.data;
+  //     console.log(rowData);
+  //     this.setState({ rowData });
+  //   });
+  // }
 
   // async runthisfunction(id) {
   //   console.log(id);
@@ -576,14 +576,14 @@ class StoreList extends React.Component {
                             {this.gridApi
                               ? this.state.currenPageSize
                               : "" * this.state.getPageSize -
-                                (this.state.getPageSize - 1)}{" "}
+                              (this.state.getPageSize - 1)}{" "}
                             -{" "}
                             {this.state.rowData.length -
                               this.state.currenPageSize *
-                                this.state.getPageSize >
-                            0
+                              this.state.getPageSize >
+                              0
                               ? this.state.currenPageSize *
-                                this.state.getPageSize
+                              this.state.getPageSize
                               : this.state.rowData.length}{" "}
                             of {this.state.rowData.length}
                             <ChevronDown className="ml-50" size={15} />

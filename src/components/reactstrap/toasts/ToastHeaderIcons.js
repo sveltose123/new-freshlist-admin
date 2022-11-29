@@ -19,7 +19,7 @@ import {
 import classnames from "classnames"
 import { Eye, Code } from "react-feather"
 import { toastHeaderIcons } from "./ToastSourceCode"
-import gdlogo from "../../../assets/img/logo/gdlogo.png"
+import logo from "../../../assets/img/logo/logo.png"
 
 class ToastHeaderIcons extends React.Component {
   state = {

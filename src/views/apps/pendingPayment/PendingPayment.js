@@ -20,6 +20,7 @@ import { Trash2, ChevronDown } from "react-feather";
 //import { history } from "../../../history";
 import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../assets/scss/pages/users.scss";
+import Moment from "react-moment";
 class PendingPayment extends React.Component {
   state = {
     rowData: [],
@@ -103,37 +104,37 @@ class PendingPayment extends React.Component {
             <div className="badge badge-pill badge-success">
               {params.data.status}
             </div>
-            ) : params.value === "Unpublished" ? (
+          ) : params.value === "Unpublished" ? (
             <div className="badge badge-pill badge-warning">
               {params.data.status}
             </div>
-            ) : null;
-          },
+          ) : null;
         },
-      ],
-    };
-      
+      },
+    ],
+  };
 
-      // {
-      //   headerName: "Actions",
-      //   field: "transactions",
-      //   width: 150,
-      //   cellRendererFramework: (params) => {
-      //     return (
-      //       <div className="actions cursor-pointer">
-      //         {/* <Edit className="mr-50" size={20} /> */}
-      //         <Trash2
-      //           size={20}
-      //           onClick={() => {
-      //             let selectedData = this.gridApi.getSelectedRows();
-      //             this.runthisfunction(params.data._id);
-      //             this.gridApi.updateRowData({ remove: selectedData });
-      //           }}
-      //         />
-      //       </div>
-      //     );
-      //   },
-      // },
+
+  // {
+  //   headerName: "Actions",
+  //   field: "transactions",
+  //   width: 150,
+  //   cellRendererFramework: (params) => {
+  //     return (
+  //       <div className="actions cursor-pointer">
+  //         {/* <Edit className="mr-50" size={20} /> */}
+  //         <Trash2
+  //           size={20}
+  //           onClick={() => {
+  //             let selectedData = this.gridApi.getSelectedRows();
+  //             this.runthisfunction(params.data._id);
+  //             this.gridApi.updateRowData({ remove: selectedData });
+  //           }}
+  //         />
+  //       </div>
+  //     );
+  //   },
+  // },
   async componentDidMount() {
     await axiosConfig.get("/allcontactus").then((response) => {
       let rowData = response.data.data;
@@ -169,20 +170,20 @@ class PendingPayment extends React.Component {
       });
     }
   };
- 
+
   render() {
     const { rowData, columnDefs, defaultColDef } = this.state;
     return (
       <Row className="app-user-list">
         <Col sm="12">
-          
+
         </Col>
         <Col sm="12">
           <Card>
             <Row className="m-2">
               <Col>
                 <h1 col-sm-6 className="float-left">
-                Pending Payment List
+                  Pending Payment List
                 </h1>
               </Col>
               {/* <Col>
@@ -204,11 +205,11 @@ class PendingPayment extends React.Component {
                           {this.gridApi
                             ? this.state.currenPageSize
                             : "" * this.state.getPageSize -
-                              (this.state.getPageSize - 1)}{" "}
+                            (this.state.getPageSize - 1)}{" "}
                           -{" "}
                           {this.state.rowData.length -
                             this.state.currenPageSize * this.state.getPageSize >
-                          0
+                            0
                             ? this.state.currenPageSize * this.state.getPageSize
                             : this.state.rowData.length}{" "}
                           of {this.state.rowData.length}

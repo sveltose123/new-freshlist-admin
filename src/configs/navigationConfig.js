@@ -12,6 +12,7 @@ import { TbTruckDelivery } from "react-icons/tb"
 import { AiFillBell } from "react-icons/ai"
 import { FiBarChart2 } from "react-icons/fi"
 
+// eslint-disable-next-line no-sparse-arrays
 const navigationConfig = [
   {
     id: "dashboard",
@@ -318,18 +319,20 @@ const navigationConfig = [
     icon: <FaStream size={15} />,
     children: [
       {
-        title: "category",
-        type: "Category",
+        id: "category",
+        title: "Category",
+        type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/wallet/walletList",
+        navLink: "/app/freshlist/category/categoryList",
       },
       {
-        title: "subcategory",
-        type: "SubCategory",
+        id: "subcategory",
+        title: "Subcategory",
+        type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/wallet/walletList",
+        navLink: "/app/freshlist/subcategory/subCategoryList",
       },
     ]
   },
@@ -345,7 +348,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/allOrder",
+        navLink: "/app/freshlist/brand/AddBrand",
       },
       {
         id: "list",
@@ -353,7 +356,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/allOrder",
+        navLink: "/app/freshlist/brand/BrandList",
       },
     ]
   },
@@ -363,7 +366,7 @@ const navigationConfig = [
     type: "item",
     icon: <FaGopuram size={15} />,
     permissions: ["admin", "editor"],
-    navLink: "/app/wallet/walletList",
+    navLink: "/app/freshlist/attribute/ProductAttributeList",
   },
 
   {
@@ -487,12 +490,12 @@ const navigationConfig = [
     groupTitle: "MEDIA MANAGEMENT",
   },
   {
-    id: "page",
-    title: "Page",
+    id: "gallery",
+    title: "Gallery",
     type: "item",
     icon: <TbTruckDelivery size={15} />,
     permissions: ["admin", "editor"],
-    navLink: "/app/order/returnedOrder",
+    navLink: "/app/freshlist/gallery/gallery",
   },
   {
     type: "groupHeader",

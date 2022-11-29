@@ -8,6 +8,7 @@ import knowledgeBaseCategory from "./views/pages/knowledge-base/Category";
 import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions";
 import { ContextLayout } from "./utility/context/Layout";
 
+
 const analyticsDashboard = lazy(() =>
   import("./views/dashboard/analytics/AnalyticsDashboard")
 );
@@ -63,22 +64,66 @@ const EditFlashSale = lazy(() =>
   import("./views/apps/freshlist/flashSale/EditFlashSale"));
 const AddFlashSale = lazy(() =>
   import("./views/apps/freshlist/flashSale/AddFlashSale"));
+//FeatureDeal
+
+const FeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/FeatureDeal"));
+
+const EditFeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/EditFeatureDeal"));
+
+const AddFeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/AddFeatureDeal"));
+//Gallery
+
+const Gallery = lazy(() =>
+  import("./views/apps/freshlist/gallery/Gallery"));
+const AddGallery = lazy(() =>
+  import("./views/apps/freshlist/gallery/AddGallery"));
+
+//order
+const All = lazy(() =>
+  import("./views/apps/freshlist/order/All"));
+const ViewAll = lazy(() =>
+  import("./views/apps/freshlist/order/ViewAll"));
+const ViewPending = lazy(() =>
+  import("./views/apps/freshlist/order/ViewPending"));
+const Pending = lazy(() =>
+  import("./views/apps/freshlist/order/Pending"));
+const Confirmed = lazy(() =>
+  import("./views/apps/freshlist/order/Confirmed"));
+const ViewConfirmed = lazy(() =>
+  import("./views/apps/freshlist/order/ViewConfirmed"));
+const Packaging = lazy(() =>
+  import("./views/apps/freshlist/order/Packaging"));
+const ViewPackaging = lazy(() =>
+  import("./views/apps/freshlist/order/ViewPackaging"));
+const Outfordelivery = lazy(() =>
+  import("./views/apps/freshlist/order/Outfordelivery"));
+const ViewOutfordelivery = lazy(() =>
+  import("./views/apps/freshlist/order/ViewOutfordelivery"));
+const Delivered = lazy(() =>
+  import("./views/apps/freshlist/order/Delivered"));
+const ViewDelivered = lazy(() =>
+  import("./views/apps/freshlist/order/ViewDelivered"));
+const Returned = lazy(() =>
+  import("./views/apps/freshlist/order/Returned"));
+const ViewReturned = lazy(() =>
+  import("./views/apps/freshlist/order/ViewReturned"));
+const Failedtodeliver = lazy(() =>
+  import("./views/apps/freshlist/order/Failedtodeliver"));
+const ViewFailedtodeliver = lazy(() =>
+  import("./views/apps/freshlist/order/ViewFailedtodeliver"));
+const Canceled = lazy(() => import("./views/apps/freshlist/order/Canceled"));
+const ViewCanceled = lazy(() =>
+  import("./views/apps/freshlist/order/ViewCanceled"));
 //Refund Request
+
 const PendingRequest = lazy(() =>
   import("./views/apps/freshlist/refundrequest/PendingRequest"));
 
 const ViewPendingRequest = lazy(() =>
   import("./views/apps/freshlist/refundrequest/ViewPendingRequest"));
-const ApprovedRequest = lazy(() =>
-  import("./views/apps/freshlist/refundrequest/ApprovedRequest"));
-
-const ViewApprovedRequest = lazy(() =>
-  import("./views/apps/freshlist/refundrequest/ViewApprovedRequest"));
-const RejectedRequest = lazy(() =>
-  import("./views/apps/freshlist/refundrequest/RejectedRequest"));
-
-const ViewRejectedRequest = lazy(() =>
-  import("./views/apps/freshlist/refundrequest/ViewRejectedRequest"));
 // T& c
 const TermsAndCondition = lazy(() =>
   import("./views/apps/freshlist/termsAndCondition/TAndCList")
@@ -103,6 +148,53 @@ const SaleReport = lazy(() =>
 const TaxReport = lazy(() =>
   import("./views/apps/freshlist/report/TaxReport")
 );
+// Category
+
+const CategoryList = lazy(() =>
+  import("./views/apps/freshlist/category/CategoryList")
+);
+const AddCategory = lazy(() =>
+  import("./views/apps/freshlist/category/AddCategory")
+);
+const EditCategory = lazy(() =>
+  import("./views/apps/freshlist/category/EditCategory")
+);
+// Subcategory SubCategoryList
+const SubCategoryList = lazy(() =>
+  import("./views/apps/freshlist/subcategory/SubCategoryList")
+);
+const AddSubCategory = lazy(() =>
+  import("./views/apps/freshlist/subcategory/AddSubCategory")
+);
+const EditSubCategory = lazy(() =>
+  import("./views/apps/freshlist/subcategory/EditSubCategory")
+);
+// Brand
+const BrandList = lazy(() =>
+  import("./views/apps/freshlist/brand/BrandList")
+);
+const AddBrand = lazy(() =>
+  import("./views/apps/freshlist/brand/AddBrand")
+);
+const EditBrand = lazy(() =>
+  import("./views/apps/freshlist/brand/EditBrand")
+);
+// Product Attributes
+
+const ProductAttributeList = lazy(() =>
+  import("./views/apps/freshlist/attribute/ProductAttributeList")
+);
+const AddProductAttribute = lazy(() =>
+  import("./views/apps/freshlist/attribute/AddProductAttribute ")
+);
+const EditProductAttribute = lazy(() =>
+  import("./views/apps/freshlist/attribute/EditProductAttribute")
+);
+
+
+
+
+
 
 
 
@@ -122,16 +214,7 @@ const viewUserProfile = lazy(() =>
   import("./views/pages/profile/ViewUserProfile")
 );
 
-const sellerList = lazy(() => import("./views/apps/seller/SellerList"));
-const editSeller = lazy(() => import("./views/apps/seller/EditSeller"));
-const viewSeller = lazy(() => import("./views/apps/seller/ViewSeller"));
-const addSeller = lazy(() => import("./views/apps/seller/AddSeller"));
 
-const addCustomer = lazy(() => import("./views/apps/customer/AddCustomer"));
-const editCustomer = lazy(() => import("./views/apps/customer/EditCustomer"));
-const viewCustomer = lazy(() => import("./views/apps/customer/ViewCustomer"));
-const addUsers = lazy(() => import("./views/apps/users/user/AddUsers"));
-const viewUsers = lazy(() => import("./views/apps/users/user/ViewUsers"));
 
 const pendingPayment = lazy(() =>
   import("./views/apps/pendingPayment/PendingPayment")
@@ -154,9 +237,7 @@ const offerList = lazy(() =>
 const addSpecialOffer = lazy(() =>
   import("./views/apps/offerAndCoupon/specialOffer/AddSpecialOffer")
 );
-const couponsList = lazy(() =>
-  import("./views/apps/offerAndCoupon/coupons/CouponsList")
-);
+
 const addCoupons = lazy(() =>
   import("./views/apps/offerAndCoupon/coupons/AddCoupons")
 );
@@ -652,19 +733,6 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/app/freshlist/refundrequest/viewPendingRequest"
             component={ViewPendingRequest} />
-          <AppRoute
-            path="/app/freshlist/refundrequest/approvedRequest"
-            component={ApprovedRequest} />
-          <AppRoute
-            path="/app/freshlist/refundrequest/viewApprovedRequest"
-            component={ViewApprovedRequest} />
-          <AppRoute
-            path="/app/freshlist/refundrequest/rejectedRequest"
-            component={RejectedRequest} />
-          <AppRoute
-            path="/app/freshlist/refundrequest/viewRejectedRequest"
-            component={ViewRejectedRequest} />
-          /app/freshlist/termsAndCondition/TAndCList
           {/* T&C */}
           <AppRoute
             path="/app/freshlist/termsAndCondition/tAndCList"
@@ -699,31 +767,78 @@ class AppRouter extends React.Component {
             path="/app/freshlist/report/taxReport"
             component={TaxReport}
           />
-
-
-
-
-
-
-          <AppRoute path="/app/seller/sellerList" component={sellerList} />
-          <AppRoute path="/app/seller/editSeller/:id" component={editSeller} />
-          <AppRoute path="/app/seller/viewSeller/:id" component={viewSeller} />
-          <AppRoute path="/app/seller/addSeller" component={addSeller} />
-
-          <AppRoute path="/app/customer/addCustomer" component={addCustomer} />
+          {/* category */}
           <AppRoute
-            path="/app/customer/editCustomer/:id"
-            component={editCustomer}
+            path="/app/freshlist/category/categoryList"
+            component={CategoryList}
           />
           <AppRoute
-            path="/app/customer/viewCustomer/:id"
-            component={viewCustomer}
+            path="/app/freshlist/category/addCategory"
+            component={AddCategory}
           />
-          <AppRoute path="/app/users/user/addUsers" component={addUsers} />
           <AppRoute
-            path="/app/users/user/viewUsers/:id"
-            component={viewUsers}
+            path="/app/freshlist/category/editCategory"
+            component={EditCategory}
           />
+          {/* Subcategory */}
+          <AppRoute
+            path="/app/freshlist/subcategory/subCategoryList"
+            component={SubCategoryList}
+          />
+          <AppRoute
+            path="/app/freshlist/subcategory/addSubCategory"
+            component={AddSubCategory}
+          />
+          <AppRoute
+            path="/app/freshlist/subcategory/editSubCategory"
+            component={EditSubCategory}
+          />
+          {/* Brand */}
+          <AppRoute
+            path="/app/freshlist/brand/brandList"
+            component={BrandList}
+          />
+          <AppRoute
+            path="/app/freshlist/brand/addBrand"
+            component={AddBrand}
+          />
+          <AppRoute
+            path="/app/freshlist/brand/editBrand"
+            component={EditBrand}
+          />
+          {/* Product Attribute */}
+          <AppRoute
+            path="/app/freshlist/attribute/productAttributeList"
+            component={ProductAttributeList}
+          />
+          <AppRoute
+            path="/app/freshlist/attribute/addProductAttribute"
+            component={AddProductAttribute}
+          />
+          <AppRoute
+            path="/app/freshlist/attribute/editProductAttribute"
+            component={EditProductAttribute}
+          />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -752,10 +867,7 @@ class AppRouter extends React.Component {
             path="/app/offerAndCoupon/specialOffer/addSpecialOffer"
             component={addSpecialOffer}
           />
-          <AppRoute
-            path="/app/offerAndCoupon/coupons/couponsList"
-            component={couponsList}
-          />
+
           <AppRoute
             path="/app/offerAndCoupon/coupons/addCoupons"
             component={addCoupons}
