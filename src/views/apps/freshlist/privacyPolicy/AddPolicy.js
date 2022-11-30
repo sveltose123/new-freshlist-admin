@@ -5,15 +5,6 @@ import { EditorState, convertToRaw } from "draft-js";
 import { Editor } from "react-draft-wysiwyg";
 import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-<<<<<<< HEAD
-import "../../../assets/scss/plugins/extensions/editor.scss";
-import axiosConfig from "../../../axiosConfig";
-import { history } from "../../../history";
-import swal from 'sweetalert';
-
-class AddPolicy extends React.Component {
-  constructor(props) {
-=======
 import "../../../../assets/scss/plugins/extensions/editor.scss";
 import axiosConfig from "../../../../axiosConfig";
 import { history } from "../../../../history";
@@ -21,7 +12,6 @@ import swal from 'sweetalert';
 
 class AddPolicy extends React.Component {
   constructor (props) {
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
     super(props);
     this.state = {
       description: "",
@@ -70,11 +60,7 @@ class AddPolicy extends React.Component {
           <Col>
             <Button
               className=" btn btn-danger float-right"
-<<<<<<< HEAD
-              onClick={() =>history.push("/app/privacyPolicy/privacyPolicy")
-=======
               onClick={() => history.push("/app/privacyPolicy/privacyPolicy")
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
               }
             >
               Back
@@ -116,11 +102,7 @@ class AddPolicy extends React.Component {
                 },
               }}
             />
-<<<<<<< HEAD
-            <br/>
-=======
             <br />
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
             <Button color="primary">Add New Policy</Button>
           </Form>
         </CardBody>

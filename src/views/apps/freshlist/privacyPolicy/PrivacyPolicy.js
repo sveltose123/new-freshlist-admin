@@ -11,18 +11,6 @@ import {
   DropdownToggle,
   Button,
 } from "reactstrap";
-<<<<<<< HEAD
-import axiosConfig from "../../../axiosConfig";
-import ReactHtmlParser from "react-html-parser";
-import { ContextLayout } from "../../../utility/context/Layout";
-import { AgGridReact } from "ag-grid-react";
-import "ag-grid-community/dist/styles/ag-grid.css";
-import { Eye, Trash2, ChevronDown } from "react-feather";
-//import classnames from "classnames";
-import { history } from "../../../history";
-import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
-import "../../../assets/scss/pages/users.scss";
-=======
 import axiosConfig from "../../../../axiosConfig";
 import ReactHtmlParser from "react-html-parser";
 import { ContextLayout } from "../../../../utility/context/Layout";
@@ -32,7 +20,6 @@ import { Eye, Trash2, ChevronDown } from "react-feather";
 import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -55,20 +42,10 @@ class PrivacyPolicy extends React.Component {
         field: "sortorder",
         width: 100,
         filter: true,
-<<<<<<< HEAD
-        // checkboxSelection: true,
-        // headerCheckboxSelectionFilteredOnly: true,
-        // headerCheckboxSelection: true,
-=======
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
       },
       {
         headerName: "Posted Date",
         field: "createdAt",
-<<<<<<< HEAD
-        //filter: true,
-=======
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
         filter: "agSetColumnFilter",
         width: 180,
         cellRendererFramework: (params) => {
@@ -84,14 +61,8 @@ class PrivacyPolicy extends React.Component {
         },
       },
       {
-<<<<<<< HEAD
-        headerName: " Policy Description",
-        field: "description",
-        //filter: true,
-=======
         headerName: "Policy Description",
         field: "description",
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
         filter: "agSetColumnFilter",
         width: 500,
         cellRendererFramework: (params) => {
@@ -120,15 +91,9 @@ class PrivacyPolicy extends React.Component {
             }
           /> */}
               <Trash2
-<<<<<<< HEAD
-               className="mr-50"
-               size="25px"
-               color="red"
-=======
                 className="mr-50"
                 size="25px"
                 color="red"
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
                 onClick={() => {
                   let selectedData = this.gridApi.getSelectedRows();
                   this.runthisfunction(params.data._id);
@@ -192,17 +157,10 @@ class PrivacyPolicy extends React.Component {
                   Privacy Policy List
                 </h1>
               </Col>
-<<<<<<< HEAD
-              <Col> 
-                <Button
-                  className=" btn btn-danger float-right"
-                  onClick={() => history.push("/app/privacyPolicy/addPolicy")}
-=======
               <Col>
                 <Button
                   className=" btn btn-danger float-right"
                   onClick={() => history.push("/app/freshlist/privacyPolicy/addPolicy")}
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
                 >
                   Add New Policy
                 </Button>
@@ -218,19 +176,11 @@ class PrivacyPolicy extends React.Component {
                           {this.gridApi
                             ? this.state.currenPageSize
                             : "" * this.state.getPageSize -
-<<<<<<< HEAD
-                              (this.state.getPageSize - 1)}{" "}
-                          -{" "}
-                          {this.state.rowData.length -
-                            this.state.currenPageSize * this.state.getPageSize >
-                          0
-=======
                             (this.state.getPageSize - 1)}{" "}
                           -{" "}
                           {this.state.rowData.length -
                             this.state.currenPageSize * this.state.getPageSize >
                             0
->>>>>>> 94a1ea8eb60d71f5dc004b34517695eb69da5bf2
                             ? this.state.currenPageSize * this.state.getPageSize
                             : this.state.rowData.length}{" "}
                           of {this.state.rowData.length}
