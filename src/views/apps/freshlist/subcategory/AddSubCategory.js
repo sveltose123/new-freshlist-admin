@@ -124,31 +124,6 @@ export class AddSubCategory extends Component {
                                         <option value="3">3</option>
                                     </CustomInput>
                                 </Col>
-                                <Col lg="6" md="6" sm="6" className="mb-2 mt-1">
-                                    <FormGroup>
-                                        <Label className="mb-1">Status</Label>
-                                        <div
-                                            className="form-label-group"
-                                            onChange={(e) => this.changeHandler1(e)}
-                                        >
-                                            <input
-                                                style={{ marginRight: "3px" }}
-                                                type="radio"
-                                                name="status"
-                                                value="Active"
-                                            />
-                                            <span style={{ marginRight: "20px" }}>Active</span>
-
-                                            <input
-                                                style={{ marginRight: "3px" }}
-                                                type="radio"
-                                                name="status"
-                                                value="Inactive"
-                                            />
-                                            <span style={{ marginRight: "3px" }}>Inactive</span>
-                                        </div>
-                                    </FormGroup>
-                                </Col>
                             </Row>
                             <Row>
                                 <Button.Ripple

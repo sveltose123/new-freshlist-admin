@@ -1,19 +1,26 @@
 import React from "react";
 import {
-    Card, CardBody, Input, Row, Col, Button, UncontrolledDropdown,
-    DropdownMenu, DropdownItem, DropdownToggle,
+    Card,
+    CardBody,
+    Input,
+    Row,
+    Col,
+    Button,
+    UncontrolledDropdown,
+    DropdownMenu,
+    DropdownItem,
+    DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
-import axios from "axios";
+import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
-import { Edit, Trash2, ChevronDown, Eye } from "react-feather";
+import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
 import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
-import { Route, Link } from "react-router-dom";
+import ReactHtmlParser from 'react-html-parser'
 
-class HouseProductList extends React.Component {
+class Notification extends React.Component {
     state = {
         rowData: [],
         paginationPageSize: 20,
@@ -25,6 +32,7 @@ class HouseProductList extends React.Component {
             resizable: true,
             suppressMenu: true,
         },
+
         columnDefs: [
             {
                 headerName: "S.No",
@@ -32,90 +40,95 @@ class HouseProductList extends React.Component {
                 field: "node.rowIndex + 1",
                 width: 150,
                 filter: true,
+                // checkboxSelection: true,
+                // headerCheckboxSelectionFilteredOnly: true,
+                // headerCheckboxSelection: true,
             },
             {
-                headerName: "Product Name",
-                field: "customerId",
-                filter: true,
-                width: 200,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div>
-                            <span>{params.data.customerId}</span>
-                        </div>
-                    );
-                },
-            },
-            {
-                headerName: "Purchase Price",
-                field: "email	",
-                filter: true,
-                width: 190,
+                headerName: "Title",
+                field: "title",
+                width: 400,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
-                            <span>{params.data.email}</span>
+                            <span>{params.data.title}</span>
                         </div>
                     );
                 },
             },
-
             {
-                headerName: "Selling Price",
-                field: "lastname",
+                headerName: "Description",
+                field: "banner_title",
                 filter: true,
                 width: 200,
                 cellRendererFramework: (params) => {
                     return (
-                        <div>
-                            <span>{params.data.lastname}</span>
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{ReactHtmlParser(params.data.desc)}</span>
                         </div>
                     );
                 },
             },
-            {
-                headerName: "Status",
-                field: "status",
-                filter: true,
-                width: 150,
-                cellRendererFramework: (params) => {
-                    return params.value === "Block" ? (
-                        <div className="badge badge-pill badge-success">
-                            {params.data.status}
-                        </div>
-                    ) : params.value === "Unblock" ? (
-                        <div className="badge badge-pill badge-warning">
-                            {params.data.status}
-                        </div>
-                    ) : null;
-                },
-            },
+            // {
+            //     headerName: "Banner Image",
+            //     field: "banner_img",
+            //     filter: false,
+            //     width: 150,
+            //     setColumnVisible: false,
+            //     cellRendererFramework: (params) => {
+            //         return (
+            //             <div className="d-flex align-items-center cursor-pointer">
+            //                 <img
+            //                     className=" rounded-circle  mr-3"
+            //                     src={params.data.banner_img}
+            //                     alt="user avatar"
+            //                     height="40"
+            //                     width="40"
+            //                 />
+            //             </div>
+            //         );
+            //     },
+            // },
+            // {
+            //     headerName: "Status",
+            //     field: "status",
+            //     filter: true,
+            //     width: 150,
+            //     cellRendererFramework: (params) => {
+            //         return params.value === "Active" ? (
+            //             <div className="badge badge-pill badge-success">
+            //                 {params.data.status}
+            //             </div>
+            //         ) : params.value === "Inactive" ? (
+            //             <div className="badge badge-pill badge-warning">
+            //                 {params.data.status}
+            //             </div>
+            //         ) : null;
+            //     },
+            // },
             {
                 headerName: "Actions",
                 field: "sortorder",
-                // eslint-disable-next-line no-dupe-keys
-                field: "transactions",
+
+                // field: "transactions",
                 width: 150,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="actions cursor-pointer">
-                            <Eye
+                            {/* <Eye
                                 className="mr-50"
-                                size="25px"
-                                color="green"
+                                size={20}
                                 onClick={() =>
-                                    history.push(`/app/freshlist/house/viewHouseProduct/${params.data._id}`)}
-                            />
+                                    history.push(`/app/slider/viewSlider/${params.data._id}`)
+                                }
+                            /> */}
                             <Edit
                                 className="mr-50"
-                                size="25px"
-                                color="blue"
-                                onClick={() => history.push("/app/freshlist/house/editHouseProduct")}
+                                size={20}
+                                onClick={() => history.push("/app/freshlist/notif/editNotification")}
                             />
                             <Trash2
-                                className="mr-50"
-                                size="25px"
-                                color="red"
+                                size={20}
                                 onClick={() => {
                                     let selectedData = this.gridApi.getSelectedRows();
                                     this.runthisfunction(params.data._id);
@@ -129,40 +142,22 @@ class HouseProductList extends React.Component {
         ],
     };
     // async componentDidMount() {
-    //     await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
+    //   await axiosConfig.get("/getbanner").then((response) => {
+    //     const rowData = response.data.data;
+    //     console.log(rowData);
+    //     this.setState({ rowData });
+    //   });
     // }
-    // async componentDidMount() {
-    //     await axios
-    //         .get("http://35.154.86.59/api/user/allcustomer")
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
-    // }
-    // // async componentDidMount() {
-    // //   let { id } = this.props.match.params;
-    // //   await axios
-    // //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
-    // //       headers: {
-    // //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
-    // //       },
-    // //     })}
     // async runthisfunction(id) {
-    //     console.log(id);
-    //     await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
-    //         (response) => {
-    //             console.log(response);
-    //         },
-    //         (error) => {
-    //             console.log(error);
-    //         }
-    //     );
+    //   console.log(id);
+    //   await axiosConfig.get(`/delbanner/${id}`).then(
+    //     (response) => {
+    //       console.log(response);
+    //     },
+    //     (error) => {
+    //       console.log(error);
+    //     }
+    //   );
     // }
     onGridReady = (params) => {
         this.gridApi = params.api;
@@ -173,9 +168,11 @@ class HouseProductList extends React.Component {
             totalPages: this.gridApi.paginationGetTotalPages(),
         });
     };
+
     updateSearchQuery = (val) => {
         this.gridApi.setQuickFilter(val);
     };
+
     filterSize = (val) => {
         if (this.gridApi) {
             this.gridApi.paginationSetPageSize(Number(val));
@@ -191,33 +188,23 @@ class HouseProductList extends React.Component {
             console.log(rowData),
             (
                 <Row className="app-user-list">
-                    <Col sm="12"></Col>
+                    <Col sm="12">
+                    </Col>
                     <Col sm="12">
                         <Card>
                             <Row className="m-2">
                                 <Col>
                                     <h1 sm="6" className="float-left">
-                                        InHouseProduct List
+                                        Notification List
                                     </h1>
                                 </Col>
                                 <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
+                                    <Button
                                         className=" btn btn-danger float-right"
-                                        onClick={() => history.push("/app/freshlist/house/HouseProductList")}
+                                        onClick={() => history.push("/app/freshlist/notif/addNotification")}
                                     >
-                                        Back
+                                        Add Notification
                                     </Button>
-                                </Col>
-                                <Col>
-                                    <Route render={({ history }) => (
-                                        <Button
-                                            className="btn btn-primary float-right"
-                                            onClick={() => history.push("/app/freshlist/house/addHouseProduct")}
-                                        >
-                                            Add New
-                                        </Button>
-                                    )}
-                                    />
                                 </Col>
                             </Row>
                             <CardBody>
@@ -283,7 +270,8 @@ class HouseProductList extends React.Component {
                                                 <div className="export-btn">
                                                     <Button.Ripple
                                                         color="primary"
-                                                        onClick={() => this.gridApi.exportDataAsCsv()}>
+                                                        onClick={() => this.gridApi.exportDataAsCsv()}
+                                                    >
                                                         Export as CSV
                                                     </Button.Ripple>
                                                 </div>
@@ -318,4 +306,4 @@ class HouseProductList extends React.Component {
         );
     }
 }
-export default HouseProductList;
+export default Notification;

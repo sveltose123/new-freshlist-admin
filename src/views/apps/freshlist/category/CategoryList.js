@@ -202,7 +202,7 @@ class CategoryList extends React.Component {
                                 </Col>
                                 <Col>
                                     <Button style={{ marginRight: '-22rem' }}
-                                        className=" btn btn-danger float-right"
+                                        className="btn btn-danger float-right"
                                         onClick={() => history.push("/app/freshlist/category/CategoryList")}
                                     >
                                         Back

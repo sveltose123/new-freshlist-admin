@@ -106,24 +106,24 @@ export class ShopInformation extends Component {
 
                                     <Col lg="6" md="6" className="mb-1">
                                         <Label>Shop logo</Label>
-                                        <Input
+                                        <CustomInput
                                             required
                                             type="file"
                                             name="date"
                                             placeholder=""
                                             value={this.state.date}
                                             onChange={this.changeHandler}
-                                        ></Input>
+                                        ></CustomInput>
                                     </Col>
                                     <Col lg="6" md="6" className="mb-1">
                                         <Label>Shop banner</Label>
-                                        <Input
+                                        <CustomInput
                                             required
                                             type="file"
                                             name="date"
                                             value={this.state.date}
                                             onChange={this.changeHandler}
-                                        ></Input>
+                                        ></CustomInput>
 
                                     </Col>
 

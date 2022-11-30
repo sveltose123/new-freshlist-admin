@@ -9,8 +9,8 @@ import { history } from "../../../../history";
 
 class LoginJWT extends React.Component {
   state = {
-    email: "demo@demo.com",
-    password: "demodemo",
+    email: "admin@gmail.com",
+    password: "12345",
     remember: false,
   };
 

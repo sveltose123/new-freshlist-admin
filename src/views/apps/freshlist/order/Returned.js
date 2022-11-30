@@ -20,6 +20,7 @@ import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import Moment from "react-moment";
+import "../../../../assets/css/main.css"
 import swal from 'sweetalert';
 class Returned extends React.Component {
     state = {
@@ -291,7 +292,7 @@ class Returned extends React.Component {
 
                                     <Col lg="3" className="mb-2">
 
-                                        <Button.Ripple
+                                        <Button.Ripple className="bt"
                                             color="primary"
                                             type="submit"
 

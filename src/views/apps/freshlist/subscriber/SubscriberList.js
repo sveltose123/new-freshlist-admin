@@ -3,7 +3,6 @@ import {
     Card, CardBody, Input, Row, Col, Button, UncontrolledDropdown,
     DropdownMenu, DropdownItem, DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
 import axios from "axios";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
@@ -13,7 +12,7 @@ import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import { Route, Link } from "react-router-dom";
 
-class HouseProductList extends React.Component {
+class SubscriberList extends React.Component {
     state = {
         rowData: [],
         paginationPageSize: 20,
@@ -34,7 +33,7 @@ class HouseProductList extends React.Component {
                 filter: true,
             },
             {
-                headerName: "Product Name",
+                headerName: "Name",
                 field: "customerId",
                 filter: true,
                 width: 200,
@@ -47,7 +46,7 @@ class HouseProductList extends React.Component {
                 },
             },
             {
-                headerName: "Purchase Price",
+                headerName: "Mobile No.",
                 field: "email	",
                 filter: true,
                 width: 190,
@@ -61,7 +60,7 @@ class HouseProductList extends React.Component {
             },
 
             {
-                headerName: "Selling Price",
+                headerName: "Door No.",
                 field: "lastname",
                 filter: true,
                 width: 200,
@@ -73,6 +72,59 @@ class HouseProductList extends React.Component {
                     );
                 },
             },
+            {
+                headerName: "Street",
+                field: "lastname",
+                filter: true,
+                width: 200,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.lastname}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Location",
+                field: "lastname",
+                filter: true,
+                width: 200,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.lastname}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "City",
+                field: "lastname",
+                filter: true,
+                width: 200,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.lastname}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Pincode",
+                field: "lastname",
+                filter: true,
+                width: 200,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.lastname}</span>
+                        </div>
+                    );
+                },
+            },
+
             {
                 headerName: "Status",
                 field: "status",
@@ -104,13 +156,13 @@ class HouseProductList extends React.Component {
                                 size="25px"
                                 color="green"
                                 onClick={() =>
-                                    history.push(`/app/freshlist/house/viewHouseProduct/${params.data._id}`)}
+                                    history.push(`/app/freshlist/subscriber/viewSubscriber/${params.data._id}`)}
                             />
-                            <Edit
+                            {/* <Edit
                                 className="mr-50"
                                 size="25px"
                                 color="blue"
-                                onClick={() => history.push("/app/freshlist/house/editHouseProduct")}
+                                onClick={() => history.push("/app/customer/editCustomer")}
                             />
                             <Trash2
                                 className="mr-50"
@@ -121,7 +173,7 @@ class HouseProductList extends React.Component {
                                     this.runthisfunction(params.data._id);
                                     this.gridApi.updateRowData({ remove: selectedData });
                                 }}
-                            />
+                            /> */}
                         </div>
                     );
                 },
@@ -197,27 +249,8 @@ class HouseProductList extends React.Component {
                             <Row className="m-2">
                                 <Col>
                                     <h1 sm="6" className="float-left">
-                                        InHouseProduct List
+                                        Subscribers List
                                     </h1>
-                                </Col>
-                                <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
-                                        className=" btn btn-danger float-right"
-                                        onClick={() => history.push("/app/freshlist/house/HouseProductList")}
-                                    >
-                                        Back
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Route render={({ history }) => (
-                                        <Button
-                                            className="btn btn-primary float-right"
-                                            onClick={() => history.push("/app/freshlist/house/addHouseProduct")}
-                                        >
-                                            Add New
-                                        </Button>
-                                    )}
-                                    />
                                 </Col>
                             </Row>
                             <CardBody>
@@ -318,4 +351,4 @@ class HouseProductList extends React.Component {
         );
     }
 }
-export default HouseProductList;
+export default SubscriberList;

@@ -217,12 +217,12 @@ const navigationConfig = [
     ]
   },
   {
-    id: "subcriber",
+    id: "subscriber",
     title: "Subscribers  ",
     type: "item",
     icon: <FaUser size={15} />,
     permissions: ["admin", "editor"],
-    navLink: "/app/order/allOrder",
+    navLink: "/app/freshlist/subscriber/subscriberList",
   },
   {
     id: "delivery",
@@ -306,7 +306,7 @@ const navigationConfig = [
     type: "item",
     icon: <AiFillBell size={15} />,
     permissions: ["admin", "editor"],
-    navLink: "/app/order/allOrder",
+    navLink: "/app/freshlist/notif/notification",
   },
   {
     type: "groupHeader",
@@ -381,35 +381,27 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/allOrder",
-      },
-      {
-        id: "bulkimport",
-        title: "Bulk import",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/order/allOrder",
+        navLink: "/app/freshlist/house/HouseProductList",
       },
     ]
   },
-  {
-    id: "sellerproduct",
-    title: "Seller Product",
-    type: "collapse",
-    icon: <FaPodcast size={15} />,
-    children: [
+  // {
+  //   id: "sellerproduct",
+  //   title: "Seller Product",
+  //   type: "collapse",
+  //   icon: <FaPodcast size={15} />,
+  //   children: [
 
-      {
-        id: "newproduct",
-        title: " New Products",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/order/allOrder",
-      },
-    ]
-  },
+  //     {
+  //       id: "newproduct",
+  //       title: " New Products",
+  //       type: "item",
+  //       icon: <FaCircle size={8} />,
+  //       permissions: ["admin", "editor"],
+  //       navLink: "/app/order/allOrder",
+  //     },
+  //   ]
+  // },
   {
     type: "groupHeader",
     groupTitle: "ZONE MANAGEMENT",
@@ -513,7 +505,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/returnedOrder",
+        navLink: "/app/freshlist/payout/vendorPayout",
       },
       {
         id: "driver",
@@ -521,7 +513,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/returnedOrder",
+        navLink: "/app/freshlist/payout/driverPayout",
       }
     ]
   },
@@ -541,7 +533,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/returnedOrder",
+        navLink: "/app/freshlist/earning/vendorEarning",
       },
       {
         id: "driverearning",
@@ -549,7 +541,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/returnedOrder",
+        navLink: "/app/freshlist/earning/driverEarning",
       },
       {
         id: "adminearning",
@@ -557,7 +549,7 @@ const navigationConfig = [
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
-        navLink: "/app/order/returnedOrder",
+        navLink: "/app/freshlist/earning/adminEarning",
       }
     ]
   },
@@ -575,12 +567,13 @@ const navigationConfig = [
     type: "item",
     icon: <FaCog size={15} />,
     permissions: ["admin", "editor"],
-    navLink: "/app/freshlist/privacypolicy/privacyPolicy",
+    navLink: "/app/freshlist/privacyPolicy/privacyPolicy",
   },
   {
+
     id: "helpAndSupport",
     title: "Help And Support",
-    type: "collapse",
+    type: "item",
     icon: <FaQuestionCircle size={15} />,
     permissions: ["admin", "editor"],
     navLink: "/app/freshlist/helpAndSupport/helpAndSupport",
@@ -593,54 +586,7 @@ const navigationConfig = [
     permissions: ["admin", "editor"],
 
   },
-  // {
-  //   id: "subsDetails",
-  //   title: " Subscription Details ",
-  //   type: "item",
-  //   icon: < MdOutlineSubscriptions size={20}/>,
-  //   navLink: "/app/subsDetails/subsDetails",
-  // },
 
-
-  // {
-  //   id: "churnRate",
-  //   title: "Churn Rate",
-  //   type: "item",
-  //   icon: < FaAlipay size={20}/>,
-  //   navLink: "/app/churnRate/churnRate",
-  // },
-  // {
-  //   id: "siteSetting",
-  //   title: "Site Setting",
-  //   type: "collapse",
-  //   icon: <Icon.Grid size={20} />,
-  //   children: [
-  //     {
-  //       id: "general",
-  //       title: "General",
-  //       type: "item",
-  //       icon: <Icon.Circle size={12} />,
-  //       permissions: ["admin", "editor"],
-  //       navLink: "/app/siteSetting/General",
-  //     },
-  //     {
-  //       id: "emailSetting",
-  //       title: "Mail Setting",
-  //       type: "item",
-  //       icon: <Icon.Circle size={12} />,
-  //       permissions: ["admin", "editor"],
-  //       navLink: "/app/siteSetting/emailSetting",
-  //     },
-  //     {
-  //       id: "smsSetting",
-  //       title: "SMS Setting",
-  //       type: "item",
-  //       icon: <Icon.Circle size={12} />,
-  //       permissions: ["admin", "editor"],
-  //       navLink: "/app/siteSetting/smsSetting",
-  //     },
-  //   ]
-  // },
   // {
   //   id: "subscription",
   //   title: "Subscriptions",
@@ -649,32 +595,6 @@ const navigationConfig = [
   //   permissions: ["admin", "editor"],
   //   navLink: "/app/marketing/subscription/subscriptionList",
   // },
-
-  // {
-  //   id: "roleList",
-  //   title: "Roles and Permission",
-  //   type: "item",
-  //   icon: <Icon.GitMerge size={20} />,
-  //   permissions: ["admin", "editor"],
-  //   navLink: "/app/roleAndPermission/roleList",
-  // },
-  // {
-  //   id: "mailReport",
-  //   title: "Mail Report",
-  //   type: "item",
-  //   icon: < FaEnvelope size={20}/>,
-  //   permissions: ["admin", "editor"],
-  //   navLink: "/app/emailReport/mailReport",
-  // },
-  // {
-  //   id: "smsReport",
-  //   title: " SMS Report",
-  //   type: "item",
-  //   icon: < FaSms size={20}/>,
-  //   permissions: ["admin", "editor"],
-  //   navLink: "/app/sms/smsReport",
-  // },
-  ,
   // {
   //   id: "invoiceSetting",
   //   title: "Invoice Setting ",
@@ -707,20 +627,6 @@ const navigationConfig = [
   //     },
   //   ]
   // },
-  // {
-  //   id: "marketing",
-  //   title: "Marketing Tools",
-  //   type: "collapse",
-  //   icon: <FaShoppingBag size={20}/>,
-  //   children: [
-  //     {
-  //       id: "advertiesement",
-  //       title: "advertiesement",
-  //       type: "item",
-  //       icon: < FaCircle size={12}/>,
-  //       permissions: ["admin", "editor"],
-  //       navLink: "/app/marketing/advertiesement/advertiesementList",
-  //     },
   //     {
   //       id: "pushnotification",
   //       title: "Push Notification",

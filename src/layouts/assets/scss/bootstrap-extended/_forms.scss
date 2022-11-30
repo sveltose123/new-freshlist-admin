@@ -760,6 +760,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .input-group-append {
     .react-ripples {
       .btn {
+      
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
@@ -768,6 +769,7 @@ input[type="number"]::-webkit-outer-spin-button {
   .input-group-prepend {
     .react-ripples {
       .btn {
+       
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
       }

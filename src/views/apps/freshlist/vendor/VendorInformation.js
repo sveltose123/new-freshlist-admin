@@ -96,30 +96,30 @@ export class VendorInformation extends Component {
                                     <Col lg="6" md="6" className="mb-2">
 
                                         <Label>First Name</Label>
-                                        <CustomInput
-                                            type="select"
+                                        <Input
+                                            type="text"
                                             name="type"
                                             value={this.state.type}
                                             onChange={this.changeHandler}
                                         >
-                                        </CustomInput>
+                                        </Input>
                                     </Col>
                                     <Col lg="6" md="6" className="mb-1">
                                         <Label>Last Name</Label>
-                                        <CustomInput
-                                            type="select"
+                                        <Input
+                                            type="text"
                                             name="desc"
                                             value={this.state.desc}
                                             onChange={this.changeHandler}
                                         >
-                                        </CustomInput>
+                                        </Input>
                                     </Col>
 
                                     <Col lg="6" md="6" className="mb-1">
                                         <Label>Phone</Label>
                                         <Input
                                             required
-                                            type="phone"
+                                            type="number"
                                             name="date"
                                             placeholder="Enter PhoneNo."
                                             value={this.state.date}
@@ -128,13 +128,13 @@ export class VendorInformation extends Component {
                                     </Col>
                                     <Col lg="6" md="6" className="mb-1">
                                         <Label>Vendor Image</Label>
-                                        <Input
+                                        <CustomInput
                                             required
                                             type="file"
                                             name="date"
                                             value={this.state.date}
                                             onChange={this.changeHandler}
-                                        ></Input>
+                                        ></CustomInput>
                                     </Col>
                                 </Row>
                             </Form>

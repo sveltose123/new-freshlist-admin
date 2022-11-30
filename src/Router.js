@@ -25,7 +25,9 @@ const Wallet = lazy(() => import("./views/apps/freshlist/customer/Wallet"));
 const FilterOption = lazy(() => import("./views/apps/freshlist/customer/FilterOption"));
 const Summary = lazy(() => import("./views/apps/freshlist/customer/Summary"));
 const AddFund = lazy(() => import("./views/apps/freshlist/customer/AddFund"));
+// Login
 
+const Login = lazy(() => import("./views/pages/authentication/login/Login"));
 // Profile
 
 const editProfile = lazy(() => import("./views/apps/freshlist/profile/EditProfile"));
@@ -124,6 +126,21 @@ const PendingRequest = lazy(() =>
 
 const ViewPendingRequest = lazy(() =>
   import("./views/apps/freshlist/refundrequest/ViewPendingRequest"));
+const ApprovedRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/ApprovedRequest"));
+
+const ViewApprovedRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/ViewApprovedRequest"));
+const RejectedRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/RejectedRequest"));
+
+const ViewRejectedRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/ViewRejectedRequest"));
+const RefundRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/RefundRequest"));
+
+const ViewRefundRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/ViewRefundRequest"));
 // T& c
 const TermsAndCondition = lazy(() =>
   import("./views/apps/freshlist/termsAndCondition/TAndCList")
@@ -190,6 +207,45 @@ const AddProductAttribute = lazy(() =>
 const EditProductAttribute = lazy(() =>
   import("./views/apps/freshlist/attribute/EditProductAttribute")
 );
+// INhouseProduct
+const HouseProductList = lazy(() =>
+  import("./views/apps/freshlist/house/HouseProductList")
+);
+const AddHouseProduct = lazy(() =>
+  import("./views/apps/freshlist/house/AddHouseProduct")
+);
+const EditHouseProduct = lazy(() =>
+  import("./views/apps/freshlist/house/EditHouseProduct")
+);
+// Subscriber
+const SubscriberList = lazy(() =>
+  import("./views/apps/freshlist/subscriber/SubscriberList")
+);
+// Notification
+const Notification = lazy(() => import("./views/apps/freshlist/notif/Notification"));
+const AddNotification = lazy(() => import("./views/apps/freshlist/notif/AddNotification"));
+// policy
+const PrivacyPolicy = lazy(() =>
+  import("./views/apps/freshlist/privacyPolicy/PrivacyPolicy")
+);
+
+const addPolicy = lazy(() => import("./views/apps/freshlist/privacyPolicy/AddPolicy"));
+// help
+
+const HelpAndSupport = lazy(() =>
+  import("./views/apps/freshlist/helpAndSupport/HelpAndSupport")
+);
+// Payout
+const VendorPayout = lazy(() =>
+  import("./views/apps/freshlist/payout/VendorPayout")
+);
+const DriverPayout = lazy(() =>
+  import("./views/apps/freshlist/payout/DriverPayout")
+);
+// Earning
+const VendorEarning = lazy(() =>
+  import("./views/apps/freshlist/earning/VendorEarning")
+);
 
 
 
@@ -228,9 +284,9 @@ const viewSimpleProduct = lazy(() => import("./views/apps/productManagement/simp
 
 
 // const coupon = lazy(() => import("./views/apps/products/coupon/Coupon"));
-const allOrder = lazy(() => import("./views/apps/order/AllOrder"));
 
-const status = lazy(() => import("./views/apps/order/Status"));
+
+
 const offerList = lazy(() =>
   import("./views/apps/offerAndCoupon/offer/OfferList")
 );
@@ -347,18 +403,9 @@ const addProImg = lazy(() =>
 const appBanner = lazy(() =>
   import("./views/apps/mobileApp/appBanner/AppBanner")
 );
-const importDemo = lazy(() =>
-  import("./views/apps/helpAndSupport/importDemo/ImportDemo")
-);
-const privacyPolicy = lazy(() =>
-  import("./views/apps/privacyPolicy/PrivacyPolicy")
-);
-const termsAndCondition = lazy(() =>
-  import("./views/apps/termsAndCondition/TAndCList")
-);
-const addTAndC = lazy(() => import("./views/apps/termsAndCondition/AddTAndC"));
-const addPolicy = lazy(() => import("./views/apps/privacyPolicy/AddPolicy"));
-// const Login = lazy(() => import("./views/pages/authentication/login/Login"));
+
+
+
 const Subs = lazy(() =>
   import("./views/pages/authentication/subscription/Subs")
 );
@@ -378,12 +425,10 @@ const sellerSubscription = lazy(() =>
 const addSub = lazy(() => import("./views/apps/sellerSubs/AddSub"));
 
 
-// const sliderList = lazy(() => import("./views/apps/slider/SliderList"));
-// const addSlider = lazy(() => import("./views/apps/slider/AddSlider"));
-// const viewSlider = lazy(() => import("./views/apps/slider/ViewSlider"));
+
 
 const mySubscription = lazy(() => import("./views/apps/mySubs/MySubscription"));
-const notification = lazy(() => import("./views/apps/notificat/Notification"));
+
 const sponsoredAd = lazy(() => import("./views/apps/sponsoredAds/SponsoredAd"));
 
 //Theme Component starts from here
@@ -589,9 +634,9 @@ const RouteConfig = ({ component: Component, fullLayout, ...rest }) => (
   />
 );
 const mapStateToProps = (state) => {
-  // return {
-  //   user: state.auth.login.userRole,
-  // };
+  return {
+    user: state.auth.login.userRole,
+  };
 };
 const AppRoute = connect(mapStateToProps)(RouteConfig);
 class AppRouter extends React.Component {
@@ -733,6 +778,24 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/app/freshlist/refundrequest/viewPendingRequest"
             component={ViewPendingRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/approvedRequest"
+            component={ApprovedRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/viewApprovedRequest"
+            component={ViewApprovedRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/rejectedRequest"
+            component={RejectedRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/viewRejectedRequest"
+            component={ViewRejectedRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/RefundRequest"
+            component={RefundRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/viewRefundRequest"
+            component={ViewRefundRequest} />
           {/* T&C */}
           <AppRoute
             path="/app/freshlist/termsAndCondition/tAndCList"
@@ -819,10 +882,59 @@ class AppRouter extends React.Component {
             path="/app/freshlist/attribute/editProductAttribute"
             component={EditProductAttribute}
           />
+          {/* inhouse Product */}
+          <AppRoute
+            path="/app/freshlist/house/houseProductList"
+            component={HouseProductList}
+          />
+          <AppRoute
+            path="/app/freshlist/house/addHouseProduct"
+            component={AddHouseProduct}
+          />
+          <AppRoute
+            path="/app/freshlist/house/editHouseProduct"
+            component={EditHouseProduct}
+          />
+          <AppRoute
+            path="/app/freshlist/subscriber/subscriberList"
+            component={SubscriberList}
+          />
+          {/* notification */}
+          <AppRoute
+            path="/app/freshlist/notif/notification"
+            component={Notification}
+          />
+          <AppRoute
+            path="/app/freshlist/notif/addNotification"
+            component={AddNotification}
+          />
+          {/* Privacy Police */}
+          <AppRoute
+            path="/app/freshlist/privacyPolicy/privacyPolicy"
+            component={PrivacyPolicy}
+          />
+          <AppRoute path="/app/freshlist/privacyPolicy/addPolicy" component={addPolicy} />
+          {/* help */}
+          <AppRoute
+            path="/app/freshlist/helpAndSupport/helpAndSupport"
+            component={HelpAndSupport}
+          />
+          {/* Payout */}
 
+          <AppRoute
+            path="/app/freshlist/payout/vendorPayout"
+            component={VendorPayout}
+          />
+          <AppRoute
+            path="/app/freshlist/payout/driverPayout"
+            component={DriverPayout}
+          />
+          {/* Earning */}
 
-
-
+          <AppRoute
+            path="/app/freshlist/earning/vendorEarning"
+            component={VendorEarning}
+          />
 
 
 
@@ -857,8 +969,8 @@ class AppRouter extends React.Component {
 
 
           {/* <AppRoute path="/app/products/coupon" component={coupon} /> */}
-          <AppRoute path="/app/order/allorder" component={allOrder} />
-          <AppRoute path="/app/order/status" component={status} />
+
+
           <AppRoute
             path="/app/offerAndCoupon/offer/offerList"
             component={offerList}
@@ -997,10 +1109,7 @@ class AppRouter extends React.Component {
             path="/app/onlineOrders/onlineOrders"
             component={onlineOrders}
           />
-          <AppRoute
-            path="/app/notificat/notification"
-            component={notification}
-          />
+
           <AppRoute path="/app/website/blog/blogList" component={blogList} />
           <AppRoute path="/app/website/blog/addBlog" component={addBlog} />
           <AppRoute path="/app/website/news/newsList" component={newsList} />
@@ -1023,32 +1132,14 @@ class AppRouter extends React.Component {
             path="/app/mobileApp/appBanner/AppBanner"
             component={appBanner}
           />
-          <AppRoute
-            path="/app/helpAndSupport/importDemo/ImportDemo"
-            component={importDemo}
-          />
-          <AppRoute
-            path="/app/privacyPolicy/privacyPolicy"
-            component={privacyPolicy}
-          />
-          <AppRoute
-            path="/app/termsAndCondition/tAndCList"
-            component={termsAndCondition}
-          />
-          <AppRoute
-            path="/app/termsAndCondition/addTAndC"
-            component={addTAndC}
-          />
-          <AppRoute path="/app/privacyPolicy/addPolicy" component={addPolicy} />
-          {/* <AppRoute path="/app/slider/sliderList" component={sliderList} />
-          <AppRoute path="/app/slider/addSlider" component={addSlider} />
-          <AppRoute path="/app/slider/viewSlider/:id" component={viewSlider} /> */}
+
+
           <AppRoute path="/app/user/list" component={userList} />
           <AppRoute path="/app/user/edit" component={userEdit} />
           <AppRoute path="/app/user/view" component={userView} />
           <AppRoute path="/pages/subs" component={Subs} fullLayout />
           {/* <AppRoute path="/pages/logDemo" component={ logDemo} fullLayout /> */}
-          {/* <AppRoute path="/pages/login" component={Login} fullLayout /> */}
+          <AppRoute path="/pages/login" component={Login} fullLayout />
           <AppRoute
             path="/pages/forgotpassword"
             component={forgotPassword}

@@ -11,16 +11,15 @@ import {
   DropdownToggle,
   Button,
 } from "reactstrap";
-import axiosConfig from "../../../axiosConfig";
+import axiosConfig from "../../../../axiosConfig";
 import ReactHtmlParser from "react-html-parser";
-import { ContextLayout } from "../../../utility/context/Layout";
+import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import { Eye, Trash2, ChevronDown } from "react-feather";
-//import classnames from "classnames";
-import { history } from "../../../history";
-import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
-import "../../../assets/scss/pages/users.scss";
+import { history } from "../../../../history";
+import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
+import "../../../../assets/scss/pages/users.scss";
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -43,14 +42,10 @@ class PrivacyPolicy extends React.Component {
         field: "sortorder",
         width: 100,
         filter: true,
-        // checkboxSelection: true,
-        // headerCheckboxSelectionFilteredOnly: true,
-        // headerCheckboxSelection: true,
       },
       {
         headerName: "Posted Date",
         field: "createdAt",
-        //filter: true,
         filter: "agSetColumnFilter",
         width: 180,
         cellRendererFramework: (params) => {
@@ -66,9 +61,8 @@ class PrivacyPolicy extends React.Component {
         },
       },
       {
-        headerName: " Policy Description",
+        headerName: "Policy Description",
         field: "description",
-        //filter: true,
         filter: "agSetColumnFilter",
         width: 500,
         cellRendererFramework: (params) => {
@@ -97,9 +91,9 @@ class PrivacyPolicy extends React.Component {
             }
           /> */}
               <Trash2
-               className="mr-50"
-               size="25px"
-               color="red"
+                className="mr-50"
+                size="25px"
+                color="red"
                 onClick={() => {
                   let selectedData = this.gridApi.getSelectedRows();
                   this.runthisfunction(params.data._id);
@@ -163,10 +157,10 @@ class PrivacyPolicy extends React.Component {
                   Privacy Policy List
                 </h1>
               </Col>
-              <Col> 
+              <Col>
                 <Button
                   className=" btn btn-danger float-right"
-                  onClick={() => history.push("/app/privacyPolicy/addPolicy")}
+                  onClick={() => history.push("/app/freshlist/privacyPolicy/addPolicy")}
                 >
                   Add New Policy
                 </Button>
@@ -182,11 +176,11 @@ class PrivacyPolicy extends React.Component {
                           {this.gridApi
                             ? this.state.currenPageSize
                             : "" * this.state.getPageSize -
-                              (this.state.getPageSize - 1)}{" "}
+                            (this.state.getPageSize - 1)}{" "}
                           -{" "}
                           {this.state.rowData.length -
                             this.state.currenPageSize * this.state.getPageSize >
-                          0
+                            0
                             ? this.state.currenPageSize * this.state.getPageSize
                             : this.state.rowData.length}{" "}
                           of {this.state.rowData.length}

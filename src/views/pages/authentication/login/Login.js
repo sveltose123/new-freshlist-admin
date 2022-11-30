@@ -31,7 +31,7 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      //  email: "",
+      email: "",
       mobile: "",
       password: "",
     };
@@ -41,31 +41,31 @@ class Login extends React.Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  //   loginHandler = (e) => {
-  //     e.preventDefault();
+  loginHandler = (e) => {
+    e.preventDefault();
 
-  //     axios
-  //     .post("http://35.154.86.59/api/admin/adminlogin", this.state,{
-  //       headers: {
-  //         "Content-Type":"application/json"
-  //       },
-  //     })
-  //     .then((response) => { 
-  //       console.log(response.data.user);
-  //       console.log(response.data);
-  //       localStorage.setItem("auth-admintoken", response.data.token);
-  //       swal("Successful!", "You clicked the button!", "success");
-  //       localStorage.setItem("userData", JSON.stringify(response.data.user));
-  //       history.push("/");
+    axios
+      .post("http://13.127.52.128:8000/admin/adminlogin", this.state, {
+        headers: {
+          "Content-Type": "application/json"
+        },
+      })
+      .then((response) => {
+        console.log(response.data.user);
+        console.log(response.data);
+        localStorage.setItem("auth-admintoken", response.data.token);
+        swal("Successful!", "You clicked the button!", "success");
+        localStorage.setItem("userData", JSON.stringify(response.data.user));
+        history.push("/");
 
-  //     })
-  //     .catch((error) => {
+      })
+      .catch((error) => {
 
-  //       console.log(error.response);
-  //       swal("error!", "Invalied! Please enter valied Phone No. or Password", "error");
+        console.log(error.response);
+        swal("error!", "Invalied! Please enter valied Phone No. or Password", "error");
 
-  //     });
-  // };
+      });
+  };
 
   render() {
     return (
@@ -80,9 +80,6 @@ class Login extends React.Component {
           >
             <Card className="bg-authentication login-card rounded-0 mb-0 w-100">
               <Row className="m-0">
-                {/* <Col lg="6" className="d-lg-block d-none text-center align-self-center px-1 py-0">
-                    <img src={logo} alt="loginImg" width="300" style={{width:"300"}} />
-                  </Col> */}
                 <Col lg="12" md="12" className="p-1">
                   <Card className="rounded-0 mb-0 px-2 login-tabs-container">
                     <CardHeader className="pb-1">
@@ -95,17 +92,17 @@ class Login extends React.Component {
                       Welcome back, please login to your account.
                     </p>
                     <Form onSubmit={this.loginHandler}>
-                      {/* <Label>Email</Label>
-                  <FormGroup className="form-label-group position-relative has-icon-left">
-                    <Input
-                      type="email"
-                      name="email"
-                      placeholder="Email"
-                      value={this.state.email}
-                      onChange={this.handlechange}
-                      required
-                    />
-                  </FormGroup> */}
+                      <Label>Email</Label>
+                      <FormGroup className="form-label-group position-relative has-icon-left">
+                        <Input
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                          value={this.state.email}
+                          onChange={this.handlechange}
+                          required
+                        />
+                      </FormGroup>
                       <Label>Mobile No.</Label>
                       <FormGroup className="form-label-group position-relative has-icon-left">
                         <Input

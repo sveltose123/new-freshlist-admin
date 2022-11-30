@@ -11,7 +11,6 @@ import {
     DropdownToggle,
     Button,
 } from "reactstrap";
-import "../../../../assets/css/main.css"
 import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
@@ -22,7 +21,7 @@ import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import Moment from "react-moment";
 import swal from 'sweetalert';
-class All extends React.Component {
+class RefundRequest extends React.Component {
     state = {
         rowData: [],
         paginationPageSize: 20,
@@ -59,7 +58,7 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Order Date",
+                headerName: "Product Info",
                 field: "createdAt",
                 filter: "agSetColumnFilter",
                 width: 180,
@@ -92,22 +91,6 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Store",
-                field: "pending_amount",
-                filter: true,
-                resizable: true,
-                width: 180,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div className="d-flex align-items-center cursor-pointer">
-                            <div className="ml-2">
-                                <span>{params.data.comments}</span>
-                            </div>
-                        </div>
-                    );
-                },
-            },
-            {
                 headerName: "Total Amount",
                 field: "pending_amount",
                 filter: true,
@@ -124,7 +107,7 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Order Status",
+                headerName: "Refund Status",
                 field: "status",
                 filter: true,
                 width: 150,
@@ -153,24 +136,9 @@ class All extends React.Component {
                                 size="25px"
                                 color="green"
                                 onClick={() =>
-                                    history.push(`/app/freshlist/order/viewAll/${params.data._id}`)}
+                                    history.push(`/app/freshlist/refundrequest/viewRefundRequest/${params.data._id}`)}
                             />
-                            {/* <Edit
-                                className="mr-50"
-                                size="25px"
-                                color="blue"
-                                onClick={() => history.push("/app/freshlist/dealofday/editDealOfDay")}
-                            /> */}
-                            <Trash2
-                                className="mr-50"
-                                size="25px"
-                                color="red"
-                                onClick={() => {
-                                    let selectedData = this.gridApi.getSelectedRows();
-                                    this.runthisfunction(params.data._id);
-                                    this.gridApi.updateRowData({ remove: selectedData });
-                                }}
-                            />
+
                         </div>
                     );
                 },
@@ -249,7 +217,7 @@ class All extends React.Component {
             .then((response) => {
                 console.log(response);
                 swal("Successful!", "You clicked the button!", "success");
-                this.props.history.push("/app/freshlist/order/All");
+                this.props.history.push("/app/freshlist/banner/bannerList");
             })
             .catch((error) => {
                 console.log(error);
@@ -260,73 +228,12 @@ class All extends React.Component {
         const { rowData, columnDefs, defaultColDef } = this.state;
         return (
             <Row className="app-user-list">
-
-                <Col sm="12">
-                    <h2> Select Date Range</h2>
-                    <Card>
-                        <CardBody>
-                            <Form className="m-1" onSubmit={this.submitHandler}>
-                                <Row>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>All</Label>
-                                        <Input
-                                            required
-                                            type="select"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                            <option value="select">--Select--</option>
-                                            <option value="All">All</option>
-                                            <option value="In-house">In-house</option>
-                                            <option value="Seller">Seller</option>
-                                        </Input>
-                                    </Col>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>Start Date</Label>
-                                        <Input
-                                            required
-                                            type="date"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                        </Input>
-                                    </Col>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>End Date</Label>
-                                        <Input
-                                            required
-                                            type="date"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                        </Input>
-                                    </Col>
-
-                                    <Col lg="3" className="mb-2">
-                                        <Button.Ripple className="bt"
-                                            color="primary"
-                                            type="submit"
-
-
-                                        >
-                                            Show Data
-                                        </Button.Ripple>
-                                    </Col>
-                                </Row>
-                            </Form>
-                        </CardBody>
-                    </Card>
-
-                </Col>
                 <Col sm="12">
                     <Card>
                         <Row className="m-2">
                             <Col>
                                 <h1 col-sm-6 className="float-left">
-                                    All Order List
+                                    Refund Request
                                 </h1>
                             </Col>
                         </Row>
@@ -426,4 +333,4 @@ class All extends React.Component {
         );
     }
 }
-export default All;
+export default RefundRequest;
