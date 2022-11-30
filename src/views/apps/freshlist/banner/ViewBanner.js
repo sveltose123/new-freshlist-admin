@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, Media, Row, Col, Button } from "reactstrap";
 import axiosConfig from "../../../../axiosConfig";
-
+import { history } from "../../../../history";
 class ViewBanner extends React.Component {
   constructor (props) {
     super(props);

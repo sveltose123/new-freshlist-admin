@@ -233,7 +233,7 @@ class RejectedRequest extends React.Component {
                         <Row className="m-2">
                             <Col>
                                 <h1 col-sm-6 className="float-left">
-                                    Rejected Request
+                                    Rejected  Refund Request
                                 </h1>
                             </Col>
                         </Row>

@@ -8,6 +8,7 @@ import knowledgeBaseCategory from "./views/pages/knowledge-base/Category";
 import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions";
 import { ContextLayout } from "./utility/context/Layout";
 
+
 const analyticsDashboard = lazy(() =>
   import("./views/dashboard/analytics/AnalyticsDashboard")
 );
@@ -24,7 +25,9 @@ const Wallet = lazy(() => import("./views/apps/freshlist/customer/Wallet"));
 const FilterOption = lazy(() => import("./views/apps/freshlist/customer/FilterOption"));
 const Summary = lazy(() => import("./views/apps/freshlist/customer/Summary"));
 const AddFund = lazy(() => import("./views/apps/freshlist/customer/AddFund"));
+// Login
 
+const Login = lazy(() => import("./views/pages/authentication/login/Login"));
 // Profile
 
 const editProfile = lazy(() => import("./views/apps/freshlist/profile/EditProfile"));
@@ -63,7 +66,61 @@ const EditFlashSale = lazy(() =>
   import("./views/apps/freshlist/flashSale/EditFlashSale"));
 const AddFlashSale = lazy(() =>
   import("./views/apps/freshlist/flashSale/AddFlashSale"));
+//FeatureDeal
+
+const FeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/FeatureDeal"));
+
+const EditFeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/EditFeatureDeal"));
+
+const AddFeatureDeal = lazy(() =>
+  import("./views/apps/freshlist/featuredeal/AddFeatureDeal"));
+//Gallery
+
+const Gallery = lazy(() =>
+  import("./views/apps/freshlist/gallery/Gallery"));
+const AddGallery = lazy(() =>
+  import("./views/apps/freshlist/gallery/AddGallery"));
+
+//order
+const All = lazy(() =>
+  import("./views/apps/freshlist/order/All"));
+const ViewAll = lazy(() =>
+  import("./views/apps/freshlist/order/ViewAll"));
+const ViewPending = lazy(() =>
+  import("./views/apps/freshlist/order/ViewPending"));
+const Pending = lazy(() =>
+  import("./views/apps/freshlist/order/Pending"));
+const Confirmed = lazy(() =>
+  import("./views/apps/freshlist/order/Confirmed"));
+const ViewConfirmed = lazy(() =>
+  import("./views/apps/freshlist/order/ViewConfirmed"));
+const Packaging = lazy(() =>
+  import("./views/apps/freshlist/order/Packaging"));
+const ViewPackaging = lazy(() =>
+  import("./views/apps/freshlist/order/ViewPackaging"));
+const Outfordelivery = lazy(() =>
+  import("./views/apps/freshlist/order/Outfordelivery"));
+const ViewOutfordelivery = lazy(() =>
+  import("./views/apps/freshlist/order/ViewOutfordelivery"));
+const Delivered = lazy(() =>
+  import("./views/apps/freshlist/order/Delivered"));
+const ViewDelivered = lazy(() =>
+  import("./views/apps/freshlist/order/ViewDelivered"));
+const Returned = lazy(() =>
+  import("./views/apps/freshlist/order/Returned"));
+const ViewReturned = lazy(() =>
+  import("./views/apps/freshlist/order/ViewReturned"));
+const Failedtodeliver = lazy(() =>
+  import("./views/apps/freshlist/order/Failedtodeliver"));
+const ViewFailedtodeliver = lazy(() =>
+  import("./views/apps/freshlist/order/ViewFailedtodeliver"));
+const Canceled = lazy(() => import("./views/apps/freshlist/order/Canceled"));
+const ViewCanceled = lazy(() =>
+  import("./views/apps/freshlist/order/ViewCanceled"));
 //Refund Request
+
 const PendingRequest = lazy(() =>
   import("./views/apps/freshlist/refundrequest/PendingRequest"));
 
@@ -79,6 +136,11 @@ const RejectedRequest = lazy(() =>
 
 const ViewRejectedRequest = lazy(() =>
   import("./views/apps/freshlist/refundrequest/ViewRejectedRequest"));
+const RefundRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/RefundRequest"));
+
+const ViewRefundRequest = lazy(() =>
+  import("./views/apps/freshlist/refundrequest/ViewRefundRequest"));
 // T& c
 const TermsAndCondition = lazy(() =>
   import("./views/apps/freshlist/termsAndCondition/TAndCList")
@@ -103,6 +165,92 @@ const SaleReport = lazy(() =>
 const TaxReport = lazy(() =>
   import("./views/apps/freshlist/report/TaxReport")
 );
+// Category
+
+const CategoryList = lazy(() =>
+  import("./views/apps/freshlist/category/CategoryList")
+);
+const AddCategory = lazy(() =>
+  import("./views/apps/freshlist/category/AddCategory")
+);
+const EditCategory = lazy(() =>
+  import("./views/apps/freshlist/category/EditCategory")
+);
+// Subcategory SubCategoryList
+const SubCategoryList = lazy(() =>
+  import("./views/apps/freshlist/subcategory/SubCategoryList")
+);
+const AddSubCategory = lazy(() =>
+  import("./views/apps/freshlist/subcategory/AddSubCategory")
+);
+const EditSubCategory = lazy(() =>
+  import("./views/apps/freshlist/subcategory/EditSubCategory")
+);
+// Brand
+const BrandList = lazy(() =>
+  import("./views/apps/freshlist/brand/BrandList")
+);
+const AddBrand = lazy(() =>
+  import("./views/apps/freshlist/brand/AddBrand")
+);
+const EditBrand = lazy(() =>
+  import("./views/apps/freshlist/brand/EditBrand")
+);
+// Product Attributes
+
+const ProductAttributeList = lazy(() =>
+  import("./views/apps/freshlist/attribute/ProductAttributeList")
+);
+const AddProductAttribute = lazy(() =>
+  import("./views/apps/freshlist/attribute/AddProductAttribute ")
+);
+const EditProductAttribute = lazy(() =>
+  import("./views/apps/freshlist/attribute/EditProductAttribute")
+);
+// INhouseProduct
+const HouseProductList = lazy(() =>
+  import("./views/apps/freshlist/house/HouseProductList")
+);
+const AddHouseProduct = lazy(() =>
+  import("./views/apps/freshlist/house/AddHouseProduct")
+);
+const EditHouseProduct = lazy(() =>
+  import("./views/apps/freshlist/house/EditHouseProduct")
+);
+// Subscriber
+const SubscriberList = lazy(() =>
+  import("./views/apps/freshlist/subscriber/SubscriberList")
+);
+// Notification
+const Notification = lazy(() => import("./views/apps/freshlist/notif/Notification"));
+const AddNotification = lazy(() => import("./views/apps/freshlist/notif/AddNotification"));
+// policy
+const PrivacyPolicy = lazy(() =>
+  import("./views/apps/freshlist/privacyPolicy/PrivacyPolicy")
+);
+
+const addPolicy = lazy(() => import("./views/apps/freshlist/privacyPolicy/AddPolicy"));
+// help
+
+const HelpAndSupport = lazy(() =>
+  import("./views/apps/freshlist/helpAndSupport/HelpAndSupport")
+);
+// Payout
+const VendorPayout = lazy(() =>
+  import("./views/apps/freshlist/payout/VendorPayout")
+);
+const DriverPayout = lazy(() =>
+  import("./views/apps/freshlist/payout/DriverPayout")
+);
+// Earning
+const VendorEarning = lazy(() =>
+  import("./views/apps/freshlist/earning/VendorEarning")
+);
+
+
+
+
+
 
 
 
@@ -122,16 +270,7 @@ const viewUserProfile = lazy(() =>
   import("./views/pages/profile/ViewUserProfile")
 );
 
-const sellerList = lazy(() => import("./views/apps/seller/SellerList"));
-const editSeller = lazy(() => import("./views/apps/seller/EditSeller"));
-const viewSeller = lazy(() => import("./views/apps/seller/ViewSeller"));
-const addSeller = lazy(() => import("./views/apps/seller/AddSeller"));
 
-const addCustomer = lazy(() => import("./views/apps/customer/AddCustomer"));
-const editCustomer = lazy(() => import("./views/apps/customer/EditCustomer"));
-const viewCustomer = lazy(() => import("./views/apps/customer/ViewCustomer"));
-const addUsers = lazy(() => import("./views/apps/users/user/AddUsers"));
-const viewUsers = lazy(() => import("./views/apps/users/user/ViewUsers"));
 
 const pendingPayment = lazy(() =>
   import("./views/apps/pendingPayment/PendingPayment")
@@ -145,18 +284,16 @@ const viewSimpleProduct = lazy(() => import("./views/apps/productManagement/simp
 
 
 // const coupon = lazy(() => import("./views/apps/products/coupon/Coupon"));
-const allOrder = lazy(() => import("./views/apps/order/AllOrder"));
 
-const status = lazy(() => import("./views/apps/order/Status"));
+
+
 const offerList = lazy(() =>
   import("./views/apps/offerAndCoupon/offer/OfferList")
 );
 const addSpecialOffer = lazy(() =>
   import("./views/apps/offerAndCoupon/specialOffer/AddSpecialOffer")
 );
-const couponsList = lazy(() =>
-  import("./views/apps/offerAndCoupon/coupons/CouponsList")
-);
+
 const addCoupons = lazy(() =>
   import("./views/apps/offerAndCoupon/coupons/AddCoupons")
 );
@@ -266,18 +403,9 @@ const addProImg = lazy(() =>
 const appBanner = lazy(() =>
   import("./views/apps/mobileApp/appBanner/AppBanner")
 );
-const importDemo = lazy(() =>
-  import("./views/apps/helpAndSupport/importDemo/ImportDemo")
-);
-const privacyPolicy = lazy(() =>
-  import("./views/apps/privacyPolicy/PrivacyPolicy")
-);
-const termsAndCondition = lazy(() =>
-  import("./views/apps/termsAndCondition/TAndCList")
-);
-const addTAndC = lazy(() => import("./views/apps/termsAndCondition/AddTAndC"));
-const addPolicy = lazy(() => import("./views/apps/privacyPolicy/AddPolicy"));
-// const Login = lazy(() => import("./views/pages/authentication/login/Login"));
+
+
+
 const Subs = lazy(() =>
   import("./views/pages/authentication/subscription/Subs")
 );
@@ -297,12 +425,10 @@ const sellerSubscription = lazy(() =>
 const addSub = lazy(() => import("./views/apps/sellerSubs/AddSub"));
 
 
-// const sliderList = lazy(() => import("./views/apps/slider/SliderList"));
-// const addSlider = lazy(() => import("./views/apps/slider/AddSlider"));
-// const viewSlider = lazy(() => import("./views/apps/slider/ViewSlider"));
+
 
 const mySubscription = lazy(() => import("./views/apps/mySubs/MySubscription"));
-const notification = lazy(() => import("./views/apps/notificat/Notification"));
+
 const sponsoredAd = lazy(() => import("./views/apps/sponsoredAds/SponsoredAd"));
 
 //Theme Component starts from here
@@ -508,9 +634,9 @@ const RouteConfig = ({ component: Component, fullLayout, ...rest }) => (
   />
 );
 const mapStateToProps = (state) => {
-  // return {
-  //   user: state.auth.login.userRole,
-  // };
+  return {
+    user: state.auth.login.userRole,
+  };
 };
 const AppRoute = connect(mapStateToProps)(RouteConfig);
 class AppRouter extends React.Component {
@@ -664,7 +790,12 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/app/freshlist/refundrequest/viewRejectedRequest"
             component={ViewRejectedRequest} />
-          /app/freshlist/termsAndCondition/TAndCList
+          <AppRoute
+            path="/app/freshlist/refundrequest/RefundRequest"
+            component={RefundRequest} />
+          <AppRoute
+            path="/app/freshlist/refundrequest/viewRefundRequest"
+            component={ViewRefundRequest} />
           {/* T&C */}
           <AppRoute
             path="/app/freshlist/termsAndCondition/tAndCList"
@@ -699,31 +830,127 @@ class AppRouter extends React.Component {
             path="/app/freshlist/report/taxReport"
             component={TaxReport}
           />
-
-
-
-
-
-
-          <AppRoute path="/app/seller/sellerList" component={sellerList} />
-          <AppRoute path="/app/seller/editSeller/:id" component={editSeller} />
-          <AppRoute path="/app/seller/viewSeller/:id" component={viewSeller} />
-          <AppRoute path="/app/seller/addSeller" component={addSeller} />
-
-          <AppRoute path="/app/customer/addCustomer" component={addCustomer} />
+          {/* category */}
           <AppRoute
-            path="/app/customer/editCustomer/:id"
-            component={editCustomer}
+            path="/app/freshlist/category/categoryList"
+            component={CategoryList}
           />
           <AppRoute
-            path="/app/customer/viewCustomer/:id"
-            component={viewCustomer}
+            path="/app/freshlist/category/addCategory"
+            component={AddCategory}
           />
-          <AppRoute path="/app/users/user/addUsers" component={addUsers} />
           <AppRoute
-            path="/app/users/user/viewUsers/:id"
-            component={viewUsers}
+            path="/app/freshlist/category/editCategory"
+            component={EditCategory}
           />
+          {/* Subcategory */}
+          <AppRoute
+            path="/app/freshlist/subcategory/subCategoryList"
+            component={SubCategoryList}
+          />
+          <AppRoute
+            path="/app/freshlist/subcategory/addSubCategory"
+            component={AddSubCategory}
+          />
+          <AppRoute
+            path="/app/freshlist/subcategory/editSubCategory"
+            component={EditSubCategory}
+          />
+          {/* Brand */}
+          <AppRoute
+            path="/app/freshlist/brand/brandList"
+            component={BrandList}
+          />
+          <AppRoute
+            path="/app/freshlist/brand/addBrand"
+            component={AddBrand}
+          />
+          <AppRoute
+            path="/app/freshlist/brand/editBrand"
+            component={EditBrand}
+          />
+          {/* Product Attribute */}
+          <AppRoute
+            path="/app/freshlist/attribute/productAttributeList"
+            component={ProductAttributeList}
+          />
+          <AppRoute
+            path="/app/freshlist/attribute/addProductAttribute"
+            component={AddProductAttribute}
+          />
+          <AppRoute
+            path="/app/freshlist/attribute/editProductAttribute"
+            component={EditProductAttribute}
+          />
+          {/* inhouse Product */}
+          <AppRoute
+            path="/app/freshlist/house/houseProductList"
+            component={HouseProductList}
+          />
+          <AppRoute
+            path="/app/freshlist/house/addHouseProduct"
+            component={AddHouseProduct}
+          />
+          <AppRoute
+            path="/app/freshlist/house/editHouseProduct"
+            component={EditHouseProduct}
+          />
+          <AppRoute
+            path="/app/freshlist/subscriber/subscriberList"
+            component={SubscriberList}
+          />
+          {/* notification */}
+          <AppRoute
+            path="/app/freshlist/notif/notification"
+            component={Notification}
+          />
+          <AppRoute
+            path="/app/freshlist/notif/addNotification"
+            component={AddNotification}
+          />
+          {/* Privacy Police */}
+          <AppRoute
+            path="/app/freshlist/privacyPolicy/privacyPolicy"
+            component={PrivacyPolicy}
+          />
+          <AppRoute path="/app/freshlist/privacyPolicy/addPolicy" component={addPolicy} />
+          {/* help */}
+          <AppRoute
+            path="/app/freshlist/helpAndSupport/helpAndSupport"
+            component={HelpAndSupport}
+          />
+          {/* Payout */}
+
+          <AppRoute
+            path="/app/freshlist/payout/vendorPayout"
+            component={VendorPayout}
+          />
+          <AppRoute
+            path="/app/freshlist/payout/driverPayout"
+            component={DriverPayout}
+          />
+          {/* Earning */}
+
+          <AppRoute
+            path="/app/freshlist/earning/vendorEarning"
+            component={VendorEarning}
+          />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -742,8 +969,8 @@ class AppRouter extends React.Component {
 
 
           {/* <AppRoute path="/app/products/coupon" component={coupon} /> */}
-          <AppRoute path="/app/order/allorder" component={allOrder} />
-          <AppRoute path="/app/order/status" component={status} />
+
+
           <AppRoute
             path="/app/offerAndCoupon/offer/offerList"
             component={offerList}
@@ -752,10 +979,7 @@ class AppRouter extends React.Component {
             path="/app/offerAndCoupon/specialOffer/addSpecialOffer"
             component={addSpecialOffer}
           />
-          <AppRoute
-            path="/app/offerAndCoupon/coupons/couponsList"
-            component={couponsList}
-          />
+
           <AppRoute
             path="/app/offerAndCoupon/coupons/addCoupons"
             component={addCoupons}
@@ -885,10 +1109,7 @@ class AppRouter extends React.Component {
             path="/app/onlineOrders/onlineOrders"
             component={onlineOrders}
           />
-          <AppRoute
-            path="/app/notificat/notification"
-            component={notification}
-          />
+
           <AppRoute path="/app/website/blog/blogList" component={blogList} />
           <AppRoute path="/app/website/blog/addBlog" component={addBlog} />
           <AppRoute path="/app/website/news/newsList" component={newsList} />
@@ -911,32 +1132,14 @@ class AppRouter extends React.Component {
             path="/app/mobileApp/appBanner/AppBanner"
             component={appBanner}
           />
-          <AppRoute
-            path="/app/helpAndSupport/importDemo/ImportDemo"
-            component={importDemo}
-          />
-          <AppRoute
-            path="/app/privacyPolicy/privacyPolicy"
-            component={privacyPolicy}
-          />
-          <AppRoute
-            path="/app/termsAndCondition/tAndCList"
-            component={termsAndCondition}
-          />
-          <AppRoute
-            path="/app/termsAndCondition/addTAndC"
-            component={addTAndC}
-          />
-          <AppRoute path="/app/privacyPolicy/addPolicy" component={addPolicy} />
-          {/* <AppRoute path="/app/slider/sliderList" component={sliderList} />
-          <AppRoute path="/app/slider/addSlider" component={addSlider} />
-          <AppRoute path="/app/slider/viewSlider/:id" component={viewSlider} /> */}
+
+
           <AppRoute path="/app/user/list" component={userList} />
           <AppRoute path="/app/user/edit" component={userEdit} />
           <AppRoute path="/app/user/view" component={userView} />
           <AppRoute path="/pages/subs" component={Subs} fullLayout />
           {/* <AppRoute path="/pages/logDemo" component={ logDemo} fullLayout /> */}
-          {/* <AppRoute path="/pages/login" component={Login} fullLayout /> */}
+          <AppRoute path="/pages/login" component={Login} fullLayout />
           <AppRoute
             path="/pages/forgotpassword"
             component={forgotPassword}

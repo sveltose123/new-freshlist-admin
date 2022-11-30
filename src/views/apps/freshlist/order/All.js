@@ -11,6 +11,7 @@ import {
     DropdownToggle,
     Button,
 } from "reactstrap";
+import "../../../../assets/css/main.css"
 import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
@@ -248,7 +249,7 @@ class All extends React.Component {
             .then((response) => {
                 console.log(response);
                 swal("Successful!", "You clicked the button!", "success");
-                this.props.history.push("/app/freshlist/banner/bannerList");
+                this.props.history.push("/app/freshlist/order/All");
             })
             .catch((error) => {
                 console.log(error);
@@ -305,10 +306,10 @@ class All extends React.Component {
                                     </Col>
 
                                     <Col lg="3" className="mb-2">
-
-                                        <Button.Ripple
+                                        <Button.Ripple className="bt"
                                             color="primary"
                                             type="submit"
+
 
                                         >
                                             Show Data

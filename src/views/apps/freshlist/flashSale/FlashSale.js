@@ -15,7 +15,7 @@ import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import { Edit, Trash2, ChevronDown } from "react-feather";
-// import { history } from "../../../../history";
+import { history } from "../../../../history";
 // import "../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import { Route } from "react-router-dom";

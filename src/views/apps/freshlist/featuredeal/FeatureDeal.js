@@ -203,9 +203,8 @@ class FeatureDeal extends React.Component {
                                             Feature Deal Table
                                         </h3>
                                     </Col>
-
                                     <div className=""
-                                        style={{ marginLeft: "20rem" }}>
+                                        style={{ marginLeft: "8rem" }}>
                                         <Input
                                             placeholder="search..."
                                             onChange={(e) =>
@@ -216,7 +215,7 @@ class FeatureDeal extends React.Component {
                                     </div>
                                     <Col>
                                         <Button
-                                            className=" btn btn-danger float-right"
+                                            className="btn btn-danger float-right"
                                             onClick={() => history.push("/app/freshlist/featuredeal/addFeatureDeal")}
                                         >
                                             Add Feature Deal

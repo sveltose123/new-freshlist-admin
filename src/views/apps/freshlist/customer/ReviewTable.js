@@ -1,17 +1,5 @@
 import React, { Component } from "react";
-
-import {
-    Card,
-    CardBody,
-    Col,
-    Form,
-    Row,
-    Input,
-    CustomInput,
-    Label,
-    Button,
-} from "reactstrap";
-import { history } from "../../../../history";
+import { Card, CardBody, Col, Form, Row, Input, CustomInput, Label, Button, } from "reactstrap";
 import axiosConfig from "../../../../axiosConfig";
 
 export class ReviewTable extends Component {

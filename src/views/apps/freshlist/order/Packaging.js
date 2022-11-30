@@ -3,7 +3,7 @@ import {
     Card,
     CardBody,
     Input, Label,
-    Row, CustomInput,
+    Row,
     Col, Form,
     UncontrolledDropdown,
     DropdownMenu,
@@ -11,6 +11,7 @@ import {
     DropdownToggle,
     Button,
 } from "reactstrap";
+import "../../../../assets/css/main.css"
 import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
@@ -291,7 +292,7 @@ class Packaging extends React.Component {
 
                                     <Col lg="3" className="mb-2">
 
-                                        <Button.Ripple
+                                        <Button.Ripple className="bt"
                                             color="primary"
                                             type="submit"
 
