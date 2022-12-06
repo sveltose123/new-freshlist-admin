@@ -1,15 +1,7 @@
 import React from "react";
 import {
-    Card,
-    CardBody,
-    Input, Label,
-    Row, CustomInput,
-    Col, Form,
-    UncontrolledDropdown,
-    DropdownMenu,
-    DropdownItem,
-    DropdownToggle,
-    Button,
+    Card, CardBody, Input, Label, Row, CustomInput, Col, Form, UncontrolledDropdown,
+    DropdownMenu, DropdownItem, DropdownToggle, Button,
 } from "reactstrap";
 import "../../../../assets/css/main.css"
 import axiosConfig from "../../../../axiosConfig";
@@ -77,22 +69,6 @@ class Canceled extends React.Component {
             },
             {
                 headerName: "Customer Info",
-                field: "pending_amount",
-                filter: true,
-                resizable: true,
-                width: 180,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div className="d-flex align-items-center cursor-pointer">
-                            <div className="ml-2">
-                                <span>{params.data.comments}</span>
-                            </div>
-                        </div>
-                    );
-                },
-            },
-            {
-                headerName: "Store",
                 field: "pending_amount",
                 filter: true,
                 resizable: true,
@@ -252,21 +228,6 @@ class Canceled extends React.Component {
                         <CardBody>
                             <Form className="m-1" onSubmit={this.submitHandler}>
                                 <Row>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>All</Label>
-                                        <Input
-                                            required
-                                            type="select"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                            <option value="select">--Select--</option>
-                                            <option value="All">All</option>
-                                            <option value="In-house">In-house</option>
-                                            <option value="Seller">Seller</option>
-                                        </Input>
-                                    </Col>
                                     <Col lg="3" className="mb-2">
                                         <Label>Start Date</Label>
                                         <Input

@@ -99,6 +99,31 @@ export class AddBrand extends Component {
                                         onChange={this.changeHandler}
                                     />
                                 </Col>
+                                <Col lg="6" md="6">
+                                    <FormGroup>
+                                        <Label>Sort Order</Label>
+                                        <Input
+                                            type="number"
+                                            placeholder="Sort Order"
+                                            name="sortorder"
+                                            value={this.state.sortorder}
+                                            onChange={this.changeHandler}
+                                        />
+                                    </FormGroup>
+                                </Col>
+
+                                <Col lg="6" md="6">
+                                    <FormGroup>
+                                        <Label>Description</Label>
+                                        <Input
+                                            type="textarea"
+                                            placeholder="Description"
+                                            name="desc"
+                                            value={this.state.desc}
+                                            onChange={this.changeHandler}
+                                        />
+                                    </FormGroup>
+                                </Col>
                                 <Col lg="6" md="6" className="mb-1">
                                     <Label>Brand Image</Label>
                                     <CustomInput
@@ -108,31 +133,6 @@ export class AddBrand extends Component {
                                         value={this.state.sortorder}
                                         onChange={this.changeHandler}
                                     />
-                                </Col>
-                                <Col lg="6" md="6" sm="6" className="mb-2 mt-1">
-                                    <FormGroup>
-                                        <Label className="mb-1">Status</Label>
-                                        <div
-                                            className="form-label-group"
-                                            onChange={(e) => this.changeHandler1(e)}
-                                        >
-                                            <input
-                                                style={{ marginRight: "3px" }}
-                                                type="radio"
-                                                name="status"
-                                                value="Active"
-                                            />
-                                            <span style={{ marginRight: "20px" }}>Active</span>
-
-                                            <input
-                                                style={{ marginRight: "3px" }}
-                                                type="radio"
-                                                name="status"
-                                                value="Inactive"
-                                            />
-                                            <span style={{ marginRight: "3px" }}>Inactive</span>
-                                        </div>
-                                    </FormGroup>
                                 </Col>
                             </Row>
                             <Row>

@@ -295,13 +295,20 @@ class RefundRequest extends React.Component {
                                                     value={this.state.value}
                                                 />
                                             </div>
-                                            <div className="export-btn">
-                                                <Button.Ripple
-                                                    color="primary"
-                                                    onClick={() => this.gridApi.exportDataAsCsv()}
+                                            <div style={{ marginTop: "-33px" }} className="ft">
+                                                <Label><h3>Filter</h3></Label>
+                                                <Input
+                                                    required
+                                                    type="select"
+                                                    name="bannertype"
+                                                    placeholder=""
+                                                    value={this.state.bannertype}
+                                                    onChange={this.changeHandler}
                                                 >
-                                                    Export as CSV
-                                                </Button.Ripple>
+                                                    <option value="select">--Select--</option>
+                                                    <option value="active-order">InHouse Orders</option>
+                                                    <option value="hub">Hub</option>
+                                                </Input>
                                             </div>
                                         </div>
                                     </div>

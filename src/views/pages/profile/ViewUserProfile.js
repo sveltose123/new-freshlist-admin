@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  Media,
-  Row,
-  Col,
-  Button,
-} from "reactstrap";
+import { Card, CardBody, Media, Row, Col, Button, } from "reactstrap";
 //import { Edit,Trash } from "react-feather";
 //import { Link } from "react-router-dom";
 import axiosConfig from "../../../axiosConfig";
@@ -18,7 +9,7 @@ import "../../../assets/scss/pages/users.scss";
 import { history } from "../../../history";
 
 class ViewProfile extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       data: {},
@@ -28,7 +19,7 @@ class ViewProfile extends React.Component {
     //console.log(this.props.match.params);
     let { id } = this.props.match.params;
     axiosConfig
-      .get(`/getoneadmin//${id}`)
+      .get(`/admin/getoneadmin/${id}`)
       .then((response) => {
         //console.log(response.data);
         console.log(response.data.data);
@@ -53,7 +44,7 @@ class ViewProfile extends React.Component {
                 <Col>
                   <Button
                     className=" btn btn-danger float-right"
-                    onClick={() => history.push("/app/customer/customerList")}
+                    onClick={() => history.push("/app/freshlist/customer/customerList")}
                   >
                     Back
                   </Button>
@@ -64,9 +55,9 @@ class ViewProfile extends React.Component {
                   <Col className="pl-0" sm="12" lg="6">
                     <Media className="d-sm-flex d-block">
                       <Media className="mt-md-1 mt-0" left>
-                    
-                          {this.state.data?.image?.map((i) => (
-                         <img
+
+                        {this.state.data?.image?.map((i) => (
+                          <img
                             className="border-black m-0"
                             src={i}
                             alt="user avatar"
@@ -88,60 +79,60 @@ class ViewProfile extends React.Component {
                               </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                 Email
-                                </div> 
+                                  Email
+                                </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.email}</span>
                                 </div>
-                              </div>   
-                               <div className="d-flex user-info">
+                              </div>
+                              <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                 Mobile no
+                                  Mobile no
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.mobile}</span>
                                 </div>
-                              </div> 
+                              </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                Country
+                                  Country
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.country}</span>
                                 </div>
-                              </div> 
+                              </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                State
+                                  State
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.state}</span>
                                 </div>
-                              </div> 
+                              </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                City
+                                  City
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.city}</span>
                                 </div>
-                              </div> 
+                              </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                password
+                                  password
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.password}</span>
                                 </div>
-                              </div> 
+                              </div>
                               <div className="d-flex user-info">
                                 <div className="user-info-title font-weight-bold">
-                                cnfmPassword
+                                  cnfmPassword
                                 </div>
                                 <div className="text-truncate">
                                   <span>{this.state.data.cnfmPassword}</span>
                                 </div>
-                              </div> 
+                              </div>
                             </div>
                             <div className="users-page-view-table">
                               <div className="d-flex user-info">
@@ -171,7 +162,7 @@ class ViewProfile extends React.Component {
                 </Row>
               </CardBody>
             </Card>
-          </Col> 
+          </Col>
         </Row>
       </React.Fragment>
     );

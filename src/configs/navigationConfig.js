@@ -34,7 +34,7 @@ const navigationConfig = [
     children: [
       {
         id: "all",
-        title: "All",
+        title: `All (${8})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -42,7 +42,7 @@ const navigationConfig = [
       },
       {
         id: "pending",
-        title: "Pending",
+        title: `Pending   (${4})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -50,7 +50,7 @@ const navigationConfig = [
       },
       {
         id: "confirmed",
-        title: "Confirmed",
+        title: `Confirmed    (${7})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -58,7 +58,7 @@ const navigationConfig = [
       },
       {
         id: "packaging",
-        title: "Packaging",
+        title: `Packaging    (${3})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -66,7 +66,7 @@ const navigationConfig = [
       },
       {
         id: "outfordelivery",
-        title: "Out for delivery",
+        title: `Out for delivery  (${1})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -74,7 +74,7 @@ const navigationConfig = [
       },
       {
         id: "delivery",
-        title: "Delivered",
+        title: `Delivered  (${8})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -82,7 +82,7 @@ const navigationConfig = [
       },
       {
         id: "return",
-        title: "Returned",
+        title: `Returned  (${6})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -90,7 +90,7 @@ const navigationConfig = [
       },
       {
         id: "failedtodeliver",
-        title: "Failed to Deliver",
+        title: `Failed to Deliver  (${8})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -98,7 +98,7 @@ const navigationConfig = [
       },
       {
         id: "canceled",
-        title: "Canceled",
+        title: `Canceled  (${3})`,
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
@@ -149,6 +149,80 @@ const navigationConfig = [
   },
   {
     type: "groupHeader",
+    groupTitle: "Category MANAGEMENT",
+  },
+  {
+    id: "category",
+    title: "Category Setup",
+    type: "collapse",
+    icon: <FaStream size={15} />,
+    children: [
+      {
+        id: "category",
+        title: "Category",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/category/categoryList",
+      },
+    ]
+  },
+  {
+    type: "groupHeader",
+    groupTitle: "PRODUCT MANAGEMENT",
+  },
+
+  {
+    id: "brand",
+    title: "Brands",
+    type: "collapse",
+    icon: <FaStar size={15} />,
+    children: [
+      {
+        id: "addnew",
+        title: "Add New",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/brand/AddBrand",
+      },
+      {
+        id: "list",
+        title: "List",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/brand/BrandList",
+      },
+    ]
+  },
+  {
+    id: "product",
+    title: "Product Attribute",
+    type: "item",
+    icon: <FaGopuram size={15} />,
+    permissions: ["admin", "editor"],
+    navLink: "/app/freshlist/attribute/ProductAttributeList",
+  },
+
+  {
+    id: "inhouseproduct",
+    title: "InHouse Product  ",
+    type: "collapse",
+    icon: <FaStore size={15} />,
+    children: [
+      {
+        id: "product",
+        title: "Products",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/house/HouseProductList",
+      },
+    ]
+  },
+  {
+    type: "groupHeader",
     groupTitle: "USER MANAGEMENT",
   },
   {
@@ -158,12 +232,38 @@ const navigationConfig = [
     icon: <FaWallet size={15} />,
     children: [
       {
+        id: "history",
+        title: "Order History",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/customer/orderHistory",
+      },
+      {
         id: "list",
         title: "Customer List",
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
         navLink: "/app/freshlist/customer/customerList",
+      },
+
+      {
+        id: "earn",
+        title: "Referrals & Earn",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/customer/referralsEarn",
+      },
+
+      {
+        id: "reward",
+        title: "Reward Points",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/customer/rewardPoints",
       },
       {
         id: "reviews",
@@ -175,13 +275,28 @@ const navigationConfig = [
       },
       {
         id: "wallet",
-        title: "Wallet",
+        title: "Wallet Activities",
         type: "item",
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
         navLink: "/app/freshlist/customer/wallet",
-
-      }
+      },
+      {
+        id: "activity",
+        title: "Activities",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/customer/activity",
+      },
+      {
+        id: "purchase",
+        title: "Purchase History",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/customer/purchase",
+      },
     ]
   },
   {
@@ -205,6 +320,14 @@ const navigationConfig = [
         icon: <FaCircle size={8} />,
         permissions: ["admin", "editor"],
         navLink: "/app/freshlist/vendor/vendorList",
+      },
+      {
+        id: "vendor",
+        title: "Zone",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/vendor/zones",
       },
       {
         id: "withdraw",
@@ -248,6 +371,88 @@ const navigationConfig = [
       },
     ]
   },
+  {
+    type: "groupHeader",
+    groupTitle: "HUB MANAGEMENT",
+  },
+  {
+    id: "hub",
+    title: "HUB",
+    type: "collapse",
+    icon: <FaUsers size={15} />,
+    children: [
+      {
+        id: "hub",
+        title: "HUB",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/hub/hubList",
+      },
+    ]
+  },
+  {
+    type: "groupHeader",
+    groupTitle: "ZONE MANAGEMENT",
+  },
+  {
+    id: "zone",
+    title: "Zone",
+    type: "collapse",
+    icon: <FaUsers size={15} />,
+    children: [
+      {
+        id: "zone based delivery charges",
+        title: "Zone Based Delivery Charges",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/zone/deliverycharges",
+      },
+      {
+        id: "zone based minimum order value",
+        title: "Zone Based Minimum Order Value",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/zone/minimunOrderValue",
+      },
+
+      {
+        id: "zone based products",
+        title: "Zone Based Products",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/zone/zoneBasedProducts",
+      },
+      {
+        id: "zone based delivery slots",
+        title: "Zone Based Delivery Slots Deal",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/zone/deliverySlots",
+      },
+      {
+        id: "bULK export and import",
+        title: "BULK Export and Import",
+        type: "item",
+        icon: <FaCircle size={8} />,
+        permissions: ["admin", "editor"],
+        navLink: "/app/freshlist/zone/importExport",
+      },
+    ]
+  },
+
+  // {
+  //   id: "delivery",
+  //   title: "Delivery Zone  ",
+  //   type: "item",
+  //   icon: <TbTruckDelivery size={15} />,
+  //   permissions: ["admin", "editor"],
+  //   navLink: "/app/freshlist/maps/maps",
+  // },
   {
     type: "groupHeader",
     groupTitle: "PROMOTION MANAGEMENT",
@@ -307,113 +512,6 @@ const navigationConfig = [
     icon: <AiFillBell size={15} />,
     permissions: ["admin", "editor"],
     navLink: "/app/freshlist/notif/notification",
-  },
-  {
-    type: "groupHeader",
-    groupTitle: "PRODUCT MANAGEMENT",
-  },
-  {
-    id: "category",
-    title: "Category Setup",
-    type: "collapse",
-    icon: <FaStream size={15} />,
-    children: [
-      {
-        id: "category",
-        title: "Category",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/freshlist/category/categoryList",
-      },
-      {
-        id: "subcategory",
-        title: "Subcategory",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/freshlist/subcategory/subCategoryList",
-      },
-    ]
-  },
-  {
-    id: "brand",
-    title: "Brands",
-    type: "collapse",
-    icon: <FaStar size={15} />,
-    children: [
-      {
-        id: "addnew",
-        title: "Add New",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/freshlist/brand/AddBrand",
-      },
-      {
-        id: "list",
-        title: "List",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/freshlist/brand/BrandList",
-      },
-    ]
-  },
-  {
-    id: "product",
-    title: "Product Attribute",
-    type: "item",
-    icon: <FaGopuram size={15} />,
-    permissions: ["admin", "editor"],
-    navLink: "/app/freshlist/attribute/ProductAttributeList",
-  },
-
-  {
-    id: "inhouseproduct",
-    title: "InHouse Product  ",
-    type: "collapse",
-    icon: <FaStore size={15} />,
-    children: [
-      {
-        id: "product",
-        title: "Products",
-        type: "item",
-        icon: <FaCircle size={8} />,
-        permissions: ["admin", "editor"],
-        navLink: "/app/freshlist/house/HouseProductList",
-      },
-    ]
-  },
-  // {
-  //   id: "sellerproduct",
-  //   title: "Seller Product",
-  //   type: "collapse",
-  //   icon: <FaPodcast size={15} />,
-  //   children: [
-
-  //     {
-  //       id: "newproduct",
-  //       title: " New Products",
-  //       type: "item",
-  //       icon: <FaCircle size={8} />,
-  //       permissions: ["admin", "editor"],
-  //       navLink: "/app/order/allOrder",
-  //     },
-  //   ]
-  // },
-  {
-    type: "groupHeader",
-    groupTitle: "ZONE MANAGEMENT",
-  },
-
-  {
-    id: "delivery",
-    title: "Delivery Zone  ",
-    type: "item",
-    icon: <TbTruckDelivery size={15} />,
-    permissions: ["admin", "editor"],
-    navLink: "/app/order/returnedOrder",
   },
   {
     type: "groupHeader",

@@ -8,7 +8,6 @@ import knowledgeBaseCategory from "./views/pages/knowledge-base/Category";
 import knowledgeBaseQuestion from "./views/pages/knowledge-base/Questions";
 import { ContextLayout } from "./utility/context/Layout";
 
-
 const analyticsDashboard = lazy(() =>
   import("./views/dashboard/analytics/AnalyticsDashboard")
 );
@@ -25,12 +24,27 @@ const Wallet = lazy(() => import("./views/apps/freshlist/customer/Wallet"));
 const FilterOption = lazy(() => import("./views/apps/freshlist/customer/FilterOption"));
 const Summary = lazy(() => import("./views/apps/freshlist/customer/Summary"));
 const AddFund = lazy(() => import("./views/apps/freshlist/customer/AddFund"));
+const EditCustomer = lazy(() => import("./views/apps/freshlist/customer/EditCustomer"));
+const ViewCustomer = lazy(() => import("./views/apps/freshlist/customer/ViewCustomer"));
+const OrderHistory = lazy(() =>
+  import("./views/apps/freshlist/customer/OrderHistory")
+);
+
+const ReferralsEarn = lazy(() =>
+  import("./views/apps/freshlist/customer/ReferralsEarn")
+);
+
+const RewardPoints = lazy(() =>
+  import("./views/apps/freshlist/customer/RewardPoints")
+);
+const Activity = lazy(() => import("./views/apps/freshlist/customer/Activity"));
+
+const PurchaseHistory = lazy(() =>
+  import("./views/apps/freshlist/customer/PurchaseHistory")
+);
 // Login
 
 const Login = lazy(() => import("./views/pages/authentication/login/Login"));
-// Profile
-
-const editProfile = lazy(() => import("./views/apps/freshlist/profile/EditProfile"));
 
 //Banner
 
@@ -86,6 +100,9 @@ const AddGallery = lazy(() =>
 //order
 const All = lazy(() =>
   import("./views/apps/freshlist/order/All"));
+const AddOrder = lazy(() =>
+  import("./views/apps/freshlist/order/AddOrder"));
+const EditOrder = lazy(() => import("./views/apps/freshlist/order/EditOrder"));
 const ViewAll = lazy(() =>
   import("./views/apps/freshlist/order/ViewAll"));
 const ViewPending = lazy(() =>
@@ -246,22 +263,11 @@ const DriverPayout = lazy(() =>
 const VendorEarning = lazy(() =>
   import("./views/apps/freshlist/earning/VendorEarning")
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
+const DriverEarning = lazy(() =>
+  import("./views/apps/freshlist/earning/DriverEarning")
+);
+// Profile
 const userProfile = lazy(() => import("./views/pages/profile/UserProfile"));
-
-
 
 const editUserProfile = lazy(() =>
   import("./views/pages/profile/EditUserProfile")
@@ -269,8 +275,35 @@ const editUserProfile = lazy(() =>
 const viewUserProfile = lazy(() =>
   import("./views/pages/profile/ViewUserProfile")
 );
+const Maps = lazy(() => import("./views/apps/freshlist/maps/Maps"));
+
+// ZONE
+const MapCustomIcon = lazy(() => import("./views/apps/freshlist/zone/MapCustomIcon"));
+const DeliveryCharges = lazy(() => import("./views/apps/freshlist/zone/DeliveryCharges"));
+const AddDeliveryCharges = lazy(() => import("./views/apps/freshlist/zone/AddDeliveryCharges"));
+const EditDeliveryCharges = lazy(() => import("./views/apps/freshlist/zone/EditDeliveryCharges"));
+const MinimunOrderValue = lazy(() => import("./views/apps/freshlist/zone/MinimunOrderValue"));
+const AddMinimunOrderValue = lazy(() => import("./views/apps/freshlist/zone/AddMinimunOrderValue"));
+const EditMinimumOrderValue = lazy(() => import("./views/apps/freshlist/zone/EditMinimumOrderValue"));
+const ZoneBasedProducts = lazy(() => import("./views/apps/freshlist/zone/ZoneBasedProducts"));
+const AddZoneBasedProducts = lazy(() => import("./views/apps/freshlist/zone/AddZoneBasedProducts"));
+const EditZoneBasedProducts = lazy(() => import("./views/apps/freshlist/zone/EditZoneBasedProducts"));
+const DeliverySlots = lazy(() => import("./views/apps/freshlist/zone/DeliverySlots"));
+const AddDeliverySlots = lazy(() => import("./views/apps/freshlist/zone/AddDeliverySlots"));
+const EditDeliverySlots = lazy(() => import("./views/apps/freshlist/zone/EditDeliverySlots"));
+const ImportExport = lazy(() => import("./views/apps/freshlist/zone/ImportExport"));
+
+// ZONES
+
+const Zones = lazy(() => import("./views/apps/freshlist/vendor/Zones"));
+const AddZones = lazy(() => import("./views/apps/freshlist/vendor/AddZones"));
 
 
+// HUB
+const HubList = lazy(() => import("./views/apps/freshlist/hub/HubList"));
+const EditHub = lazy(() => import("./views/apps/freshlist/hub/EditHub"));
+const AddHub = lazy(() => import("./views/apps/freshlist/hub/AddHub"));
+const Time = lazy(() => import("./views/apps/freshlist/hub/Time"));
 
 const pendingPayment = lazy(() =>
   import("./views/apps/pendingPayment/PendingPayment")
@@ -280,12 +313,6 @@ const simpleProductList = lazy(() => import("./views/apps/productManagement/simp
 const addSimpleProduct = lazy(() => import("./views/apps/productManagement/simpleProduct/AddSimpleProduct"));
 const editSimpleProduct = lazy(() => import("./views/apps/productManagement/simpleProduct/EditSimpleProduct"));
 const viewSimpleProduct = lazy(() => import("./views/apps/productManagement/simpleProduct/ViewSimpleProduct"));
-
-
-
-// const coupon = lazy(() => import("./views/apps/products/coupon/Coupon"));
-
-
 
 const offerList = lazy(() =>
   import("./views/apps/offerAndCoupon/offer/OfferList")
@@ -403,9 +430,6 @@ const addProImg = lazy(() =>
 const appBanner = lazy(() =>
   import("./views/apps/mobileApp/appBanner/AppBanner")
 );
-
-
-
 const Subs = lazy(() =>
   import("./views/pages/authentication/subscription/Subs")
 );
@@ -423,9 +447,6 @@ const sellerSubscription = lazy(() =>
   import("./views/apps/sellerSubs/SellerSubscription")
 );
 const addSub = lazy(() => import("./views/apps/sellerSubs/AddSub"));
-
-
-
 
 const mySubscription = lazy(() => import("./views/apps/mySubs/MySubscription"));
 
@@ -557,7 +578,7 @@ const ReactTables = lazy(() =>
 );
 const Aggrid = lazy(() => import("./views/tables/aggrid/Aggrid"));
 const DataTable = lazy(() => import("./views/tables/data-tables/DataTables"));
-const profile = lazy(() => import("./views/pages/profile/Profile"));
+
 const faq = lazy(() => import("./views/pages/faq/FAQ"));
 const knowledgeBase = lazy(() =>
   import("./views/pages/knowledge-base/KnowledgeBase")
@@ -575,7 +596,7 @@ const maintenance = lazy(() => import("./views/pages/misc/Maintenance"));
 const apex = lazy(() => import("./views/charts/apex/ApexCharts"));
 const chartjs = lazy(() => import("./views/charts/chart-js/ChartJS"));
 const extreme = lazy(() => import("./views/charts/recharts/Recharts"));
-const leafletMaps = lazy(() => import("./views/maps/Maps"));
+
 const toastr = lazy(() => import("./extensions/toastify/Toastify"));
 const sweetAlert = lazy(() => import("./extensions/sweet-alert/SweetAlert"));
 const rcSlider = lazy(() => import("./extensions/rc-slider/Slider"));
@@ -650,8 +671,32 @@ class AppRouter extends React.Component {
             path="/ecommerce-dashboard"
             component={ecommerceDashboard} />
           {/* Customer */}
-
-          <AppRoute path="/app/freshlist/customer/customerList" component={CustomerList} />
+          <AppRoute
+            path="/app/freshlist/customer/customerList"
+            component={CustomerList}
+          />
+          <AppRoute
+            path="/app/freshlist/customer/orderHistory"
+            component={OrderHistory}
+          />
+          <AppRoute
+            path="/app/freshlist/customer/referralsEarn"
+            component={ReferralsEarn}
+          />
+          <AppRoute
+            path="/app/freshlist/customer/rewardPoints"
+            component={RewardPoints}
+          />
+          <AppRoute
+            path="/app/freshlist/customer/activity"
+            component={Activity}
+          />
+          <AppRoute
+            path="/app/freshlist/customer/purchase"
+            component={PurchaseHistory}
+          />
+          <AppRoute path="/app/freshlist/customer/viewCustomer/:id" component={ViewCustomer} />
+          <AppRoute path="/app/freshlist/customer/editCustomer/:id" component={EditCustomer} />
           <AppRoute path="/app/freshlist/customer/customerReview" component={CustomerReview} />
           <AppRoute path="/app/freshlist/customer/reviewTable" component={ReviewTable} />
           <AppRoute path="/app/freshlist/customer/wallet" component={Wallet} />
@@ -720,6 +765,12 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/app/freshlist/order/all"
             component={All} />
+          <AppRoute
+            path="/app/freshlist/order/addOrder"
+            component={AddOrder} />
+          <AppRoute
+            path="/app/freshlist/order/editOrder"
+            component={EditOrder} />
           <AppRoute
             path="/app/freshlist/order/viewAll"
             component={ViewAll} />
@@ -840,7 +891,7 @@ class AppRouter extends React.Component {
             component={AddCategory}
           />
           <AppRoute
-            path="/app/freshlist/category/editCategory"
+            path="/app/freshlist/category/editCategory/:id"
             component={EditCategory}
           />
           {/* Subcategory */}
@@ -853,7 +904,7 @@ class AppRouter extends React.Component {
             component={AddSubCategory}
           />
           <AppRoute
-            path="/app/freshlist/subcategory/editSubCategory"
+            path="/app/freshlist/subcategory/editSubCategory/:id"
             component={EditSubCategory}
           />
           {/* Brand */}
@@ -935,6 +986,111 @@ class AppRouter extends React.Component {
             path="/app/freshlist/earning/vendorEarning"
             component={VendorEarning}
           />
+          <AppRoute
+            path="/app/freshlist/earning/driverEarning"
+            component={DriverEarning}
+          />
+          {/* Profile */}
+
+          <AppRoute path="/pages/profile/userProfile" component={userProfile} />
+          <AppRoute
+            path="/pages/profile/editUserProfile/:id"
+            component={editUserProfile}
+          />
+          <AppRoute
+            path="/pages/profile/viewUserProfile/:id"
+            component={viewUserProfile}
+          />
+          {/* Map */}
+          <AppRoute
+            path="/app/freshlist/maps/maps"
+            component={Maps}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/deliverycharges"
+            component={DeliveryCharges}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/addDeliveryCharges"
+            component={AddDeliveryCharges}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/editDeliveryCharges"
+            component={EditDeliveryCharges}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/minimunOrderValue"
+            component={MinimunOrderValue}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/addMinimunOrderValue"
+            component={AddMinimunOrderValue}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/editMinimunOrderValue"
+            component={EditMinimumOrderValue}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/zoneBasedProducts"
+            component={ZoneBasedProducts}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/addZoneBasedProducts"
+            component={AddZoneBasedProducts}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/editZoneBasedProducts"
+            component={EditZoneBasedProducts}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/deliverySlots"
+            component={DeliverySlots}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/addDeliverySlots"
+            component={AddDeliverySlots}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/editDeliverySlots"
+            component={EditDeliverySlots}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/mapCustomIcon"
+            component={MapCustomIcon}
+          />
+          <AppRoute
+            path="/app/freshlist/zone/importExport"
+            component={ImportExport}
+          />
+          <AppRoute
+            path="/app/freshlist/vendor/zones"
+            component={Zones}
+          />
+          <AppRoute
+            path="/app/freshlist/vendor/addZones"
+            component={AddZones}
+          />
+
+
+          {/* HUB */}
+          <AppRoute
+            path="/app/freshlist/hub/hubList"
+            component={HubList}
+          />
+          <AppRoute
+            path="/app/freshlist/hub/editHub"
+            component={EditHub}
+          />
+          <AppRoute
+            path="/app/freshlist/hub/AddHub"
+            component={AddHub}
+          />
+          <AppRoute
+            path="/app/freshlist/hub/Time"
+            component={Time}
+          />
+
+
 
 
 
@@ -1154,16 +1310,8 @@ class AppRouter extends React.Component {
             component={newPassword}
             fullLayout
           />
-          <AppRoute path="/pages/profile/userProfile" component={userProfile} />
-          <AppRoute
-            path="/pages/profile/editUserProfile/:id"
-            component={editUserProfile}
-          />
-          <AppRoute
-            path="/pages/profile/viewUserProfile/:id"
-            component={viewUserProfile}
-          />
-          <AppRoute path="/app/profile/editProfile" component={editProfile} />
+
+
           <AppRoute
             path="/app/mysubs/mySubscription"
             component={mySubscription}
@@ -1264,7 +1412,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/tables/react-tables" component={ReactTables} />
           <AppRoute path="/tables/agGrid" component={Aggrid} />
           <AppRoute path="/tables/data-tables" component={DataTable} />
-          <AppRoute path="/pages/profile" component={profile} />
+
           <AppRoute path="/pages/faq" component={faq} />
           <AppRoute
             path="/pages/knowledge-base"
@@ -1312,7 +1460,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/charts/apex" component={apex} />
           <AppRoute path="/charts/chartjs" component={chartjs} />
           <AppRoute path="/charts/recharts" component={extreme} />
-          <AppRoute path="/maps/leaflet" component={leafletMaps} />
+
           <AppRoute path="/extensions/sweet-alert" component={sweetAlert} />
           <AppRoute path="/extensions/toastr" component={toastr} />
           <AppRoute path="/extensions/slider" component={rcSlider} />

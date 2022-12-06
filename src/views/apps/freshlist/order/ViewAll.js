@@ -75,7 +75,7 @@ class ViewAll extends React.Component {
                                                             </div>
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Item Image
+                                                                    Order From
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -83,7 +83,7 @@ class ViewAll extends React.Component {
                                                             </div>
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Payment Method
+                                                                    Delivery Address
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -91,7 +91,7 @@ class ViewAll extends React.Component {
                                                             </div>
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Payment Status
+                                                                    Order Date
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -100,7 +100,7 @@ class ViewAll extends React.Component {
 
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Tax
+                                                                    Delivery Date
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -108,7 +108,7 @@ class ViewAll extends React.Component {
                                                             </div>
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Discount
+                                                                    Item
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -116,7 +116,7 @@ class ViewAll extends React.Component {
                                                             </div>
                                                             <div className="d-flex user-info">
                                                                 <div className="user-info-title font-weight-bold">
-                                                                    Price
+                                                                    Assign Driver
                                                                 </div>
                                                                 <div className="text-truncate">
                                                                     <span>{this.state.data.bannertype}</span>
@@ -125,7 +125,7 @@ class ViewAll extends React.Component {
                                                             <div className="users-page-view-table">
                                                                 <div className="d-flex user-info">
                                                                     <div className="user-info-title font-weight-bold">
-                                                                        Status
+                                                                        Order Status
                                                                     </div>
                                                                     <div>{this.state.data.status}</div>
                                                                 </div>

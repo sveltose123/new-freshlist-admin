@@ -3,8 +3,8 @@ import {
     Card, CardBody, Input, Row, Col, Button, UncontrolledDropdown,
     DropdownMenu, DropdownItem, DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
-import axios from "axios";
+import axiosConfig from "../../../../axiosConfig";
+
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import { Edit, Trash2, ChevronDown } from "react-feather";
@@ -12,6 +12,7 @@ import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import { Route, Link } from "react-router-dom";
+
 
 class CategoryList extends React.Component {
     state = {
@@ -30,45 +31,109 @@ class CategoryList extends React.Component {
                 headerName: "S.No",
                 valueGetter: "node.rowIndex + 1",
                 field: "node.rowIndex + 1",
-                width: 150,
+                width: 80,
                 filter: true,
             },
             {
-                headerName: "Category Image",
-                field: "customerId",
+                headerName: "Web Thumbnail",
+                field: "image",
                 filter: true,
-                width: 200,
+                width: 80,
                 cellRendererFramework: (params) => {
                     return (
-                        <div>
-                            <span>{params.data.customerId}</span>
-                        </div>
+                        // eslint-disable-next-line jsx-a11y/alt-text
+                        <img className="w-50 h-50  rounded-circle" src={params.data.image} />
                     );
                 },
             },
             {
-                headerName: "Name",
-                field: "email	",
+                headerName: "App Thumbnail",
+                field: "image",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        // eslint-disable-next-line jsx-a11y/alt-text
+                        <img className="w-50 h-50  rounded-circle" src={params.data.image} />
+                    );
+                },
+            },
+
+            {
+                headerName: " Category Name",
+                field: "category_name",
                 filter: true,
                 width: 190,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
-                            <span>{params.data.email}</span>
+                            <span>{params.data.category_name}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Title",
+                field: "desc",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.desc}</span>
                         </div>
                     );
                 },
             },
 
             {
-                headerName: "Priority",
-                field: "lastname",
+                headerName: "Description",
+                field: "desc",
                 filter: true,
-                width: 200,
+                width: 80,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.lastname}</span>
+                            <span>{params.data.desc}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Suggested Product Set",
+                field: "desc",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.desc}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Types",
+                field: "desc",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.desc}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Featured",
+                field: "desc",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.desc}</span>
                         </div>
                     );
                 },
@@ -78,13 +143,13 @@ class CategoryList extends React.Component {
                 headerName: "Status",
                 field: "status",
                 filter: true,
-                width: 150,
+                width: 80,
                 cellRendererFramework: (params) => {
-                    return params.value === "Block" ? (
+                    return params.value === "true" ? (
                         <div className="badge badge-pill badge-success">
                             {params.data.status}
                         </div>
-                    ) : params.value === "Unblock" ? (
+                    ) : params.value === "false" ? (
                         <div className="badge badge-pill badge-warning">
                             {params.data.status}
                         </div>
@@ -94,23 +159,17 @@ class CategoryList extends React.Component {
             {
                 headerName: "Actions",
                 field: "sortorder",
+                // eslint-disable-next-line no-dupe-keys
                 field: "transactions",
                 width: 150,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="actions cursor-pointer">
-                            {/* <Eye
-                                className="mr-50"
-                                size="25px"
-                                color="green"
-                                onClick={() =>
-                                    history.push(`/app/customer/viewCustomer/${params.data._id}`)}
-                            /> */}
                             <Edit
                                 className="mr-50"
                                 size="25px"
                                 color="blue"
-                                onClick={() => history.push("/app/customer/editCustomer")}
+                                onClick={() => history.push(`/app/freshlist/category/editCategory/${params.data._id}`)}
                             />
                             <Trash2
                                 className="mr-50"
@@ -128,42 +187,38 @@ class CategoryList extends React.Component {
             },
         ],
     };
-    // async componentDidMount() {
-    //     await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
-    // }
-    // async componentDidMount() {
-    //     await axios
-    //         .get("http://35.154.86.59/api/user/allcustomer")
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
-    // }
-    // // async componentDidMount() {
-    // //   let { id } = this.props.match.params;
-    // //   await axios
-    // //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
-    // //       headers: {
-    // //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
-    // //       },
-    // //     })}
-    // async runthisfunction(id) {
-    //     console.log(id);
-    //     await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
-    //         (response) => {
-    //             console.log(response);
-    //         },
-    //         (error) => {
-    //             console.log(error);
-    //         }
-    //     );
-    // }
+    async componentDidMount() {
+        let { id } = this.props.match.params;
+        await axiosConfig.get(`/admin/viewonecategory/${id}`)
+            .then((response) => {
+                let rowData = response.data.data;
+                console.log(rowData);
+                this.setState({ rowData });
+            });
+    }
+    // eslint-disable-next-line no-dupe-class-members
+    async componentDidMount() {
+        await axiosConfig
+            .get("/admin/getallcategory")
+            .then((response) => {
+                let rowData = response.data.data;
+                console.log(rowData);
+                this.setState({ rowData });
+            });
+    }
+
+    async runthisfunction(id) {
+
+        console.log(id);
+        await axiosConfig.get(`/admin/del_one_category/${id}`).then(
+            (response) => {
+                console.log(response);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
     onGridReady = (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
@@ -201,7 +256,7 @@ class CategoryList extends React.Component {
                                     </h1>
                                 </Col>
                                 <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
+                                    <Button style={{ marginRight: '-15rem' }}
                                         className="btn btn-danger float-right"
                                         onClick={() => history.push("/app/freshlist/category/CategoryList")}
                                     >
@@ -211,7 +266,7 @@ class CategoryList extends React.Component {
                                 <Col>
                                     <Route render={({ history }) => (
                                         <Button
-                                            className="btn btn-primary float-right"
+                                            className="btn btn-danger float-right"
                                             onClick={() => history.push("/app/freshlist/category/addCategory")}
                                         >
                                             Add New

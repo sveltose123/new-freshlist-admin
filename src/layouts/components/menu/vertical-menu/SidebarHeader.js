@@ -20,8 +20,9 @@ class SidebarHeader extends Component {
             <NavLink to="/" className="navbar-brand">
               <div className="brand-logo" />
               {/* <h2 className="brand-text mb-0">Deepak</h2> */}
-              <h1 style={{ width: "150", color: "green" }}>FreshList</h1>
-              {/* <img src={logo} alt="logo" width= "150px" height="40px" style={{width:"150"}}/> */}
+              <img src={logo} alt="logo" width="170px" height="90px" />
+              {/* <h1 style={{ width: "100", color: "green" }}>FreshList</h1> */}
+
             </NavLink>
           </li>
           <li className="nav-item nav-toggle">

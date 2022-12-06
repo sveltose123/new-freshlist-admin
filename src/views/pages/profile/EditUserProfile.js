@@ -9,12 +9,12 @@ import {
   Label,
   Input,
   Button,
- } from "reactstrap";
+} from "reactstrap";
 import axios from "axios";
 import { history } from "../../../history";
 
 class EditProfile extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
       name: "",
@@ -83,7 +83,7 @@ class EditProfile extends Component {
               <Row className="m-2">
                 <Col>
                   <h1 col-sm-6 className="float-left">
-                   Edit Profile
+                    Edit Profile
                   </h1>
                 </Col>
                 {/* <Col>
@@ -93,83 +93,73 @@ class EditProfile extends Component {
                 Back
               </Button> 
                </Col> */}
-            </Row>
-            <CardBody>
-              <Form className="m-1" onSubmit={this.submitHandler}>
-                <Row>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label>Name:</Label>
+              </Row>
+              <CardBody>
+                <Form className="m-1" onSubmit={this.submitHandler}>
+                  <Row>
+                    <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Label>Name:</Label>
                       <Input
-                          required
-                          type="text"
-                          placeholder="Name"
-                          name="name"
-                          value={this.state.name}
-                          onChange={this.changeHandler}
+                        required
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.changeHandler}
                       />
-                  </Col>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label> Email:</Label>
+                    </Col>
+                    <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Label> Email:</Label>
                       <Input
-                          required
-                          type="email"
-                          name="email"
-                          value={this.state.email}
-                          onChange={this.changeHandler}
-                          placeholder="Enter Email"
+                        required
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.changeHandler}
+                        placeholder="Enter Email"
                       />
-                  </Col>
-                </Row>
-                <Row>
-                  {/* <Col lg="6" md="6" sm="6" className="mb-2">
-                      <Label>Phone Number:</Label>
-                        <Input
-                          type="text"
-                          placeholder="Contact Number"
-                          name="phone_no"
-                          value={this.state.phone_no}
-                          onChange={this.changeHandler}
-                      />
-                  </Col> */}
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label>Mobile:</Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Label>Mobile:</Label>
                       <Input
-                          required
-                          type="text"
-                          placeholder="Mobile Number"
-                          name="mobile"
-                          value={this.state.mobile}
-                          onChange={this.changeHandler}
+                        required
+                        type="text"
+                        placeholder="Mobile Number"
+                        name="mobile"
+                        value={this.state.mobile}
+                        onChange={this.changeHandler}
                       />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col lg="4" md="2" sm="2" className="mb-2">
-                    <Label>Country:</Label>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col lg="4" md="2" sm="2" className="mb-2">
+                      <Label>Country:</Label>
                       <CustomInput
-                          required
-                          type="select"
-                          placeholder="Country"
-                          name="country"
-                          value={this.state.country}
-                          onChange={this.changeHandler}
-                        >
+                        required
+                        type="select"
+                        placeholder="Country"
+                        name="country"
+                        value={this.state.country}
+                        onChange={this.changeHandler}
+                      >
                         <option value="country">Country</option>
                         <option value="algeria">Algeria</option>
                         <option value="austria">Austria</option>
                         <option value="canada">Canada</option>
                         <option value="UK">UK</option>
                       </CustomInput>
-                  </Col>
-                  <Col lg="4" md="2" sm="2" className="mb-2">
-                    <Label>State:</Label>
+                    </Col>
+                    <Col lg="4" md="2" sm="2" className="mb-2">
+                      <Label>State:</Label>
                       <CustomInput
-                          required
-                          type="select"
-                          placeholder="State"
-                          name="state"
-                          value={this.state.state}
-                          onChange={this.changeHandler}
+                        required
+                        type="select"
+                        placeholder="State"
+                        name="state"
+                        value={this.state.state}
+                        onChange={this.changeHandler}
                       >
                         <option value="state">State</option>
                         <option value="mp">MP</option>
@@ -177,16 +167,16 @@ class EditProfile extends Component {
                         <option value="maharashtra">Maharashtra</option>
                         <option value="gujarat">Gujarat</option>
                       </CustomInput>
-                  </Col>
-                  <Col lg="4" md="2" sm="2" className="mb-2">
-                    <Label>City :</Label>
+                    </Col>
+                    <Col lg="4" md="2" sm="2" className="mb-2">
+                      <Label>City :</Label>
                       <CustomInput
-                          required
-                          type="select"
-                          placeholder="City"
-                          name="city"
-                          value={this.state.city}
-                          onChange={this.changeHandler}
+                        required
+                        type="select"
+                        placeholder="City"
+                        name="city"
+                        value={this.state.city}
+                        onChange={this.changeHandler}
                       >
                         <option value="city">City</option>
                         <option value="indore">Indore</option>
@@ -194,19 +184,19 @@ class EditProfile extends Component {
                         <option value="jabalpur">Jabalpur</option>
                         <option value="delhi">Delhi</option>
                       </CustomInput>
-                  </Col>
-                </Row>
-                <Col lg="6" md="6" sm="6" className="mb-2">
-                  <Label>User Image</Label>
-                    <Input 
-                      required type="file" 
+                    </Col>
+                  </Row>
+                  {/* <Col lg="6" md="6" sm="6" className="mb-2">
+                    <Label>User Image</Label>
+                    <Input
+                      required type="file"
                       name="image"
-                      onChange={this.onChangeHandler} 
+                      onChange={this.onChangeHandler}
                     />
-                </Col>
-                <Row>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label>Password:</Label>
+                  </Col> */}
+                  <Row>
+                    <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Label>Password:</Label>
                       <Input
                         required
                         type="text"
@@ -216,9 +206,9 @@ class EditProfile extends Component {
                         onChange={this.changeHandler}
                         placeholder="Set Password For User"
                       />
-                  </Col>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label>Confirm Password:</Label>
+                    </Col>
+                    {/* <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Label>Confirm Password:</Label>
                       <Input
                         required
                         type="text"
@@ -227,33 +217,33 @@ class EditProfile extends Component {
                         onChange={this.changeHandler}
                         placeholder="Set Password For User"
                       />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Button.Ripple   
-                      color="danger"
-                      className="mr-1 mb-1 btn-danger-rgba" 
-                      type="reset"
-                      value="Reset">
+                    </Col> */}
+                  </Row>
+                  <Row>
+                    <Col lg="6" md="6" sm="6" className="mb-2">
+                      <Button.Ripple
+                        color="danger"
+                        className="mr-1 mb-1 btn-danger-rgba"
+                        type="reset"
+                        value="Reset">
                         Reset
-                    </Button.Ripple>
-                    <Button.Ripple
-                      color="primary"
-                      type="submit"
-                      className="mr-1 mb-1">
+                      </Button.Ripple>
+                      <Button.Ripple
+                        color="primary"
+                        type="submit"
+                        className="mr-1 mb-1">
                         Update
-                    </Button.Ripple>
-                  </Col>
-                </Row>
-                {/* <Row>
+                      </Button.Ripple>
+                    </Col>
+                  </Row>
+                  {/* <Row>
                 </Row> */}
-              </Form>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
-    </div>
+                </Form>
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

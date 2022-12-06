@@ -1,268 +1,215 @@
-import React, { Component } from "react";
-import { Col, Row, Card, CardBody, Form, CustomInput, Label, Input, Button } from "reactstrap";
-import "../../../assets/css/profile.css";
+import React from "react";
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  Label,
+  Input,
+  Card,
+  CardTitle,
+} from "reactstrap";
+import "../../../assets/scss/pages/users-profile.scss";
+import CheckBoxesVuexy from "../../../components/@vuexy/checkbox/CheckboxesVuexy";
+import { Check } from "react-feather";
+import Breadcrumbs from "../../../components/@vuexy/breadCrumbs/BreadCrumb";
+// import axios from "axios";
+import swal from "sweetalert";
 import axiosConfig from "../../../axiosConfig";
-export class UserProfile extends Component {
-  constructor(props) {
+// import { Route } from "react-router-dom";
+
+class UserProfile extends React.Component {
+  constructor (props) {
     super(props);
     this.state = {
       name: "",
-      mobile: "",
-      email:"",
-      country: "",
-      state: "",
-      city: "",
-      password: "",
+      email: "",
       cnfmPassword: "",
+      password: "",
+      adminimg: "",
       selectedName: "",
       selectedFile: null,
-       image: "",
-      // status: "",
-           
-          
+      data: {},
     };
   }
+
+  //Image Submit Handler
+  onChangeHandler = (event) => {
+    this.setState({ selectedFile: event.target.files[0] });
+    this.setState({ selectedName: event.target.files[0].name });
+    console.log(event.target.files[0]);
+  };
+
   componentDidMount() {
-    console.log(this.props.match.params);
     // let { id } = this.props.match.params;
-    var user = JSON.parse(localStorage.getItem('userData'));
     axiosConfig
-      .get(`/getoneadmin/${user._id}`)
-.then((response) => {
-  console.log(response);
-  this.setState({
-    name: response.data.data.name,
-    email: response.data.data.email,
-    mobile: response.data.data.mobile,
-    password: response.data.data.password,
-    cnfrm_password: response.data.data.cnfrm_password,
-    image: response.data.data.image,
-    country: response.data.data.country,
-    state: response.data.data.state,
-    city: response.data.data.city,
-  });
-})
-.catch((error) => {
-  console.log(error.response);
-});
-}
-
-onChangeHandler = (event) => {
-this.setState({ selectedFile: event.target.files[0] });
-this.setState({ selectedName: event.target.files[0].name });
-console.log(event.target.files[0]);
-};
-
-changeHandler = (e) => {
-this.setState({ [e.target.name]: e.target.value });
-};
-
-    submitHandler = (e) => {
-      e.preventDefault();
-      const data = new FormData();
-      data.append("name", this.state.name);
-      data.append("email", this.state.email);
-      data.append("password", this.state.password);
-      data.append("cnfrm_password", this.state.cnfrm_password);
-      data.append("mobile", this.state.mobile);
-      data.append("country", this.state.country);
-      data.append("state", this.state.state);
-      data.append("city", this.state.city);
-      if (this.state.selectedFile !== null) {
-        data.append("image", this.state.selectedFile, this.state.selectedName);
-      }
-      for (var value of data.values()) {
-        console.log(value);
-      }
-      for (var value of data.values()) {
-        console.log(value);
-      }
-  
-      let { id } = this.props.match.params;
-        // var user = JSON.parse(localStorage.getItem('userData'));
-        axiosConfig
-          .post(`/editadmin/${id}`, data)
-          .then((response) => {
-            console.log(response.data);
-          })
-        .then((response) => {
-          console.log(response);
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.log(error.response);
+      .get(`/admin/getoneadmin/63875207a1d65ee4d84b3ab2`)
+      .then((response) => {
+        //console.log(response.data);
+        console.log(response);
+        this.setState({
+          data: response.data.data,
+          name: response.data.data.name,
+          email: response.data.data.email,
+          // mobile: response.data.data.mobile,
+          password: response.data.data.password,
+          cnfmPassword: response.data.data.cnfmPassword,
         });
-    };
-render() {
-  return (
-    <div>
-      <Row>
-        <Col lg="12">
-          <Card>
-            <Row className="m-2">
-              <Col>
-                <h1 col-sm-6 className="float-left">
-                  Edit Profile
-                </h1>
-              </Col>
-         
-            </Row>
-            <CardBody>
-              <Form className="m-1" onSubmit={this.submitHandler}>
-                <Row>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label>Name:</Label>
-                      <Input
-                        required
-                        type="text"
-                        placeholder="Name"
-                        name="name"
-                        value={this.state.name}
-                        onChange={this.changeHandler}
-                      />
-                  </Col>
-                  <Col lg="6" md="6" sm="6" className="mb-2">
-                    <Label> Email:</Label>
-                      <Input
-                        required
-                        type="email"
-                        name="email"
-                        value={this.state.email}
-                        onChange={this.changeHandler}
-                        placeholder="Enter Email"
-                      />
-                  </Col>
-                  </Row>
-                    <Row>
-                   
-                      <Col lg="6" md="6" sm="6" className="mb-2">
-                        <Label>Mobile:</Label>
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  }
+
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  submitHandler = (e) => {
+    e.preventDefault();
+    console.log(this.state.data);
+    const data = new FormData();
+    data.append("name", this.state.name);
+    data.append("email", this.state.email);
+    // data.append("mobile", this.state.mobile);
+    data.append("password", this.state.password);
+    data.append("cnfmPassword", this.state.cnfmPassword);
+    if (this.state.selectedFile !== null) {
+      data.append("adminimg", this.state.selectedFile, this.state.selectedName);
+    }
+
+    for (var value of data.values()) {
+      console.log(value);
+    }
+
+    for (var key of data.keys()) {
+      console.log(key);
+    }
+    //  let { id } = this.props.match.params;
+    axiosConfig
+      .post(`/admin/adminprofile/63875207a1d65ee4d84b3ab2`, data, {
+
+      })
+      .then((response) => {
+        console.log(response.data.message);
+        swal("Success!", "Submitted SuccessFull!", "success");
+        window.location.reload("/#/pages/profile");
+      })
+
+      .catch((error) => {
+        swal("Error!", "You clicked the button!", "error");
+        console.log(error.response);
+      });
+  };
+  render() {
+    return (
+      <React.Fragment>
+        <Breadcrumbs
+          breadCrumbTitle="Profile"
+          breadCrumbParent="Pages"
+          breadCrumbActive="Profile"
+        />
+        <div id="user-profile">
+          <Row className="m-0 justify-content-center">
+            <Col lg="4" md="4" xl="4" sm="12">
+              <Card className="bg-authentication rounded-0 mb-0 w-100">
+                <div className="profile-img text-center st-1">
+                  <img
+                    src={this.state.data.adminimg}
+                    alt="adminimg"
+                    className="img-fluid img-border rounded-circle box-shadow-1"
+                    width="150"
+                  />
+                  <ul className="lst-1">
+                    <li className="lst-2">
+                      Name:{" "}
+                      <span className="lst-3">{this.state.data.name}</span>
+                    </li>
+                    <li className="lst-2">
+                      Email:{" "}
+                      <span className="lst-3">{this.state.data.email}</span>
+                    </li>
+                  </ul>
+                </div>
+              </Card>
+            </Col>
+            <Col
+              sm="12"
+              xl="8"
+              lg="8"
+              md="8"
+              className="d-flex justify-content-center"
+            >
+              <Card className="bg-authentication rounded-0 mb-0 w-100">
+                <Form className="m-1" onSubmit={this.submitHandler}>
+                  <div className="st-2">
+                    <CardTitle>
+                      <h4 className="mb-3">Edit Profile</h4>
+                      <Col></Col>
+                    </CardTitle>
+                    <Row className="m-0">
+                      <Col sm="12" className="p-0">
+                        <Form action="/">
+                          <Label>Name</Label>
                           <Input
-                            required
                             type="text"
-                            placeholder="Mobile Number"
-                            name="mobile"
-                            value={this.state.mobile}
+                            name="name"
+                            placeholder="Name"
+                            value={this.state.name}
                             onChange={this.changeHandler}
                           />
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col lg="4" md="2" sm="2" className="mb-2">
-                        <Label>Country:</Label>
+                          <Label>Email</Label>
                           <Input
-                            required
-                            type="text"
-                            placeholder="Country"
-                            name="country"
-                            value={this.state.country}
+                            type="email"
+                            name="email"
+                            placeholder="email"
+                            value={this.state.email}
                             onChange={this.changeHandler}
-                          >
-                            {/* <option value="country">Country</option>
-                            <option value="algeria">Algeria</option>
-                            <option value="austria">Austria</option>
-                            <option value="canada">Canada</option>
-                            <option value="UK">UK</option> */}
-                          </Input>
-                      </Col>
-                      <Col lg="4" md="2" sm="2" className="mb-2">
-                        <Label>State:</Label>
+                          />
+                          <Label>Password</Label>
                           <Input
-                            required
-                            type="text"
-                            placeholder="State"
-                            name="state"
-                            value={this.state.state}
-                            onChange={this.changeHandler}
-                          >
-                            {/* <option value="state">State</option>
-                            <option value="mp">MP</option>
-                            <option value="goa">Goa</option>
-                            <option value="maharashtra">Maharashtra</option>
-                            <option value="gujarat">Gujarat</option> */}
-                          </Input>
-                      </Col>
-                      <Col lg="4" md="2" sm="2" className="mb-2">
-                        <Label>City :</Label>
-                          <Input
-                            required
-                            type="text"
-                            placeholder="City"
-                            name="city"
-                            value={this.state.city}
-                            onChange={this.changeHandler}
-                          >
-                            {/* <option value="city">City</option>
-                            <option value="indore">Indore</option>
-                            <option value="sagar">Sagar</option>
-                            <option value="jabalpur">Jabalpur</option>
-                            <option value="delhi">Delhi</option> */}
-                          </Input>
-                      </Col>
-                    </Row>
-                    <Col lg="6" md="6" sm="6" className="mb-2">
-                      <Label>User Image</Label>
-                        <Input 
-                          required
-                          type="file" 
-                          name="image"
-                          onChange={this.onChangeHandler} 
-                        />
-                        <img src={this.state.image} style={{width:'50px',height:'50px'}}/>
-                    </Col>
-                    
-                    <Row>
-                      <Col lg="6" md="6" sm="6" className="mb-2">
-                        <Label>Password:</Label>
-                          <Input
-                            required
-                            type="text"
+                            type="password"
                             name="password"
-                            id="show_hide_password"
+                            placeholder="Password"
                             value={this.state.password}
                             onChange={this.changeHandler}
-                            placeholder="Set Password For User"
                           />
-                      </Col>
-                      <Col lg="6" md="6" sm="6" className="mb-2">
-                        <Label>Confirm Password:</Label>
+                          <Label>Confirm Password</Label>
                           <Input
-                            required
-                            type="text"
+                            type="password"
                             name="cnfmPassword"
+                            placeholder="Reset password"
                             value={this.state.cnfmPassword}
                             onChange={this.changeHandler}
-                            placeholder="Set Password For User"
                           />
+                          <Label>User Image</Label>
+                          <Input
+                            className="form-control"
+                            type="file"
+                            name="adminimg"
+                            onChange={this.onChangeHandler}
+                          />
+                          <CheckBoxesVuexy
+                            color="primary"
+                            icon={<Check className="vx-icon" size={16} />}
+                            label=" I accept the terms & conditions."
+                            defaultChecked={true}
+                          />
+                          <div className="d-flex justify-content-between">
+                            <Button.Ripple color="primary" type="submit">
+                              Submit
+                            </Button.Ripple>
+                          </div>
+                        </Form>
                       </Col>
                     </Row>
-                    <Row>
-                      <Col lg="6" md="6" sm="6" className="mb-2">
-                        {/* <Button.Ripple   
-                          color="danger"
-                          className="mr-1 mb-1 btn-danger-rgba" 
-                          type="reset"
-                          value="Reset"
-                        >
-                          Reset
-                        </Button.Ripple> */}
-                        <Button.Ripple
-                          color="primary"
-                          type="submit"
-                          className="mr-1 mb-1"
-                        >
-                          Update
-                        </Button.Ripple>
-                      </Col>
-                    </Row>
-                    {/* <Row>
-                    </Row> */}
+                  </div>
                 </Form>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      </React.Fragment>
     );
   }
 }

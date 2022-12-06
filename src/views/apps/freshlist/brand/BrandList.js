@@ -59,34 +59,6 @@ class BrandList extends React.Component {
                     );
                 },
             },
-
-            {
-                headerName: "Total Product",
-                field: "lastname",
-                filter: true,
-                width: 200,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div>
-                            <span>{params.data.lastname}</span>
-                        </div>
-                    );
-                },
-            },
-            {
-                headerName: "Total Order",
-                field: "lastname",
-                filter: true,
-                width: 200,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div>
-                            <span>{params.data.lastname}</span>
-                        </div>
-                    );
-                },
-            },
-
             {
                 headerName: "Status",
                 field: "status",
@@ -214,7 +186,7 @@ class BrandList extends React.Component {
                                     </h1>
                                 </Col>
                                 <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
+                                    <Button style={{ marginRight: '-17rem' }}
                                         className=" btn btn-danger float-right"
                                         onClick={() => history.push("/app/freshlist/brand/BrandList")}
                                     >
@@ -224,7 +196,7 @@ class BrandList extends React.Component {
                                 <Col>
                                     <Route render={({ history }) => (
                                         <Button
-                                            className="btn btn-primary float-right"
+                                            className="btn btn-danger float-right"
                                             onClick={() => history.push("/app/freshlist/brand/addBrand")}
                                         >
                                             Add New

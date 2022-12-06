@@ -4,7 +4,7 @@ export class VendorPayout extends Component {
     render() {
         return (
             <div>
-                <h1>Help And Support</h1>
+                <h1>vendorPayout</h1>
             </div>
         );
     }

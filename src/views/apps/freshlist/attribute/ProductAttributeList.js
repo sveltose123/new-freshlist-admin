@@ -157,7 +157,7 @@ class ProductAttributeList extends React.Component {
                                     </h1>
                                 </Col>
                                 <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
+                                    <Button style={{ marginRight: '-17rem' }}
                                         className=" btn btn-danger float-right"
                                         onClick={() => history.push("/app/freshlist/attribute/ProductAttributeList")}
                                     >
@@ -167,7 +167,7 @@ class ProductAttributeList extends React.Component {
                                 <Col>
                                     <Route render={({ history }) => (
                                         <Button
-                                            className="btn btn-primary float-right"
+                                            className="btn btn-danger float-right"
                                             onClick={() => history.push("/app/freshlist/attribute/addProductAttribute")}
                                         >
                                             Add New

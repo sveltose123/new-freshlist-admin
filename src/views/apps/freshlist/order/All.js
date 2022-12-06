@@ -16,11 +16,12 @@ import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/dist/styles/ag-grid.css";
-import { Eye, Trash2, ChevronDown } from "react-feather";
+import { Eye, Trash2, ChevronDown, Edit } from "react-feather";
 import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import Moment from "react-moment";
+import { Route, Link } from "react-router-dom";
 import swal from 'sweetalert';
 class All extends React.Component {
     state = {
@@ -39,15 +40,63 @@ class All extends React.Component {
                 headerName: "S.No",
                 valueGetter: "node.rowIndex + 1",
                 field: "node.rowIndex + 1",
-                width: 150,
+                width: 100,
                 filter: true,
             },
             {
-                headerName: "Order ID ",
+                headerName: "Order ID",
                 field: "you_are",
                 filter: true,
                 resizable: true,
-                width: 180,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <div className="ml-2">
+                                <span>{params.data.you_are}</span>
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Order From",
+                field: "you_are",
+                filter: true,
+                resizable: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <div className="ml-2">
+                                <span>{params.data.you_are}</span>
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Location",
+                field: "you_are",
+                filter: true,
+                resizable: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <div className="ml-2">
+                                <span>{params.data.you_are}</span>
+                            </div>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Delivery Address",
+                field: "you_are",
+                filter: true,
+                resizable: true,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
@@ -76,7 +125,7 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Customer Info",
+                headerName: "Delivery Date",
                 field: "pending_amount",
                 filter: true,
                 resizable: true,
@@ -92,11 +141,11 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Store",
+                headerName: "Item",
                 field: "pending_amount",
                 filter: true,
                 resizable: true,
-                width: 180,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
@@ -108,11 +157,11 @@ class All extends React.Component {
                 },
             },
             {
-                headerName: "Total Amount",
+                headerName: "Assign Driver",
                 field: "pending_amount",
                 filter: true,
                 resizable: true,
-                width: 180,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
@@ -127,7 +176,7 @@ class All extends React.Component {
                 headerName: "Order Status",
                 field: "status",
                 filter: true,
-                width: 150,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return params.value === "Published" ? (
                         <div className="badge badge-pill badge-success">
@@ -138,6 +187,21 @@ class All extends React.Component {
                             {params.data.status}
                         </div>
                     ) : null;
+                },
+            },
+            {
+                headerName: "Notify Customer",
+                field: "status",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <div className="ml-2">
+                                <span>{params.data.comments}</span>
+                            </div>
+                        </div>
+                    );
                 },
             },
             {
@@ -155,12 +219,14 @@ class All extends React.Component {
                                 onClick={() =>
                                     history.push(`/app/freshlist/order/viewAll/${params.data._id}`)}
                             />
-                            {/* <Edit
+                            <Edit
                                 className="mr-50"
                                 size="25px"
-                                color="blue"
-                                onClick={() => history.push("/app/freshlist/dealofday/editDealOfDay")}
-                            /> */}
+                                color="green"
+                                onClick={() =>
+                                    history.push(`/app/freshlist/order/editAll/${params.data._id}`)}
+                            />
+
                             <Trash2
                                 className="mr-50"
                                 size="25px"
@@ -262,56 +328,55 @@ class All extends React.Component {
             <Row className="app-user-list">
 
                 <Col sm="12">
-                    <h2> Select Date Range</h2>
                     <Card>
                         <CardBody>
                             <Form className="m-1" onSubmit={this.submitHandler}>
                                 <Row>
                                     <Col lg="3" className="mb-2">
-                                        <Label>All</Label>
+                                        <Label>Filter</Label>
                                         <Input
                                             required
                                             type="select"
                                             name="bannertype"
                                             placeholder=""
                                             value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                            <option value="select">--Select--</option>
-                                            <option value="All">All</option>
-                                            <option value="In-house">In-house</option>
-                                            <option value="Seller">Seller</option>
-                                        </Input>
-                                    </Col>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>Start Date</Label>
-                                        <Input
-                                            required
-                                            type="date"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                        </Input>
-                                    </Col>
-                                    <Col lg="3" className="mb-2">
-                                        <Label>End Date</Label>
-                                        <Input
-                                            required
-                                            type="date"
-                                            name="bannertype"
-                                            placeholder=""
-                                            value={this.state.bannertype}
-                                            onChange={this.changeHandler}>
-                                        </Input>
-                                    </Col>
-
-                                    <Col lg="3" className="mb-2">
-                                        <Button.Ripple className="bt"
-                                            color="primary"
-                                            type="submit"
-
-
+                                            onChange={this.changeHandler}
                                         >
+                                            <option value="select">--Select--</option>
+                                            <option value="active-order">Active order</option>
+                                            <option value="date">Date</option>
+                                            <option value="processing">Processing</option>
+                                            <option value="packed">Packed</option>
+                                            <option value="delivery">Out For Delivery</option>
+                                            <option value="reschedule">Reschedule</option>
+                                            <option value="hub">Hub</option>
+                                        </Input>
+                                    </Col>
+                                    <Col lg="3" className="mb-2">
+                                        <Label>From</Label>
+                                        <Input
+                                            required
+                                            type="date"
+                                            name="bannertype"
+                                            placeholder=""
+                                            value={this.state.bannertype}
+                                            onChange={this.changeHandler}
+                                        ></Input>
+                                    </Col>
+                                    <Col lg="3" className="mb-2">
+                                        <Label>To</Label>
+                                        <Input
+                                            required
+                                            type="date"
+                                            name="bannertype"
+                                            placeholder=""
+                                            value={this.state.bannertype}
+                                            onChange={this.changeHandler}
+                                        ></Input>
+                                    </Col>
+
+                                    <Col lg="3" className="mb-2">
+                                        <Button.Ripple className="bt" color="primary" type="submit">
                                             Show Data
                                         </Button.Ripple>
                                     </Col>
@@ -328,6 +393,17 @@ class All extends React.Component {
                                 <h1 col-sm-6 className="float-left">
                                     All Order List
                                 </h1>
+                            </Col>
+                            <Col>
+                                <Route render={({ history }) => (
+                                    <Button
+                                        className="btn btn-danger float-right"
+                                        onClick={() => history.push("/app/freshlist/order/addOrder")}
+                                    >
+                                        Add New
+                                    </Button>
+                                )}
+                                />
                             </Col>
                         </Row>
                         <CardBody>
@@ -379,7 +455,7 @@ class All extends React.Component {
                                             </UncontrolledDropdown>
                                         </div>
                                         <div className="d-flex flex-wrap justify-content-between mb-1">
-                                            <div className="table-input mr-1">
+                                            <div className="table-input">
                                                 <Input
                                                     placeholder="search..."
                                                     onChange={(e) =>
@@ -388,7 +464,7 @@ class All extends React.Component {
                                                     value={this.state.value}
                                                 />
                                             </div>
-                                            <div className="export-btn">
+                                            <div className="">
                                                 <Button.Ripple
                                                     color="primary"
                                                     onClick={() => this.gridApi.exportDataAsCsv()}

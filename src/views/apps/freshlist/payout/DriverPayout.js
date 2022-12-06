@@ -4,7 +4,7 @@ export class DriverPayout extends Component {
     render() {
         return (
             <div>
-                <h1>Help And Support</h1>
+                <h1>DriverPayout</h1>
             </div>
         );
     }
