@@ -3,16 +3,17 @@ import {
     Card, CardBody, Input, Row, Col, Button, UncontrolledDropdown,
     DropdownMenu, DropdownItem, DropdownToggle,
 } from "reactstrap";
-import axiosConfig from "../../../../axiosConfig";
+// import axiosConfig from "../../../../axiosConfig";
+import axios from "axios";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
-import { Edit, Trash2, ChevronDown } from "react-feather";
+import { Eye, Edit, Trash2, ChevronDown } from "react-feather";
 import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
-import { Route, Link } from "react-router-dom";
-import ReactHtmlParser from "react-html-parser";
-class BrandList extends React.Component {
+import AddMedia from "./AddMedia";
+
+class Media extends React.Component {
     state = {
         rowData: [],
         paginationPageSize: 20,
@@ -33,40 +34,27 @@ class BrandList extends React.Component {
                 filter: true,
             },
             {
-                headerName: "Brand Image",
-                field: "image",
+                headerName: "Product Video",
+                field: "customerId",
                 filter: true,
                 width: 200,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <img className="w-50 h-50  rounded-circle" src={params.data.image} />
+                            <span>{params.data.customerId}</span>
                         </div>
                     );
                 },
             },
             {
-                headerName: "Name",
-                field: "brand_name",
+                headerName: "Banner Video",
+                field: "email	",
                 filter: true,
                 width: 190,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
-                            <span>{params.data.brand_name}</span>
-                        </div>
-                    );
-                },
-            },
-            {
-                headerName: "Description",
-                field: "desc",
-                filter: true,
-                width: 190,
-                cellRendererFramework: (params) => {
-                    return (
-                        <div className="d-flex align-items-center cursor-pointer">
-                            <span>{ReactHtmlParser(params.data.desc)}</span>
+                            <span>{params.data.email}</span>
                         </div>
                     );
                 },
@@ -77,11 +65,11 @@ class BrandList extends React.Component {
                 filter: true,
                 width: 150,
                 cellRendererFramework: (params) => {
-                    return params.value === "Active" ? (
+                    return params.value === "Block" ? (
                         <div className="badge badge-pill badge-success">
                             {params.data.status}
                         </div>
-                    ) : params.value === "Deactive" ? (
+                    ) : params.value === "Unblock" ? (
                         <div className="badge badge-pill badge-warning">
                             {params.data.status}
                         </div>
@@ -92,22 +80,16 @@ class BrandList extends React.Component {
                 headerName: "Actions",
                 field: "sortorder",
                 field: "transactions",
-                width: 150,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="actions cursor-pointer">
-                            {/* <Eye
-                                className="mr-50"
-                                size="25px"
-                                color="green"
-                                onClick={() =>
-                                    history.push(`/app/customer/viewCustomer/${params.data._id}`)}
-                            /> */}
+
                             <Edit
                                 className="mr-50"
                                 size="25px"
                                 color="blue"
-                                onClick={() => history.push(`/app/freshlist/brand/editBrand/${params.data._id}`)}
+                                onClick={() => history.push("/app/freshlist/gallery/editMedia")}
                             />
                             <Trash2
                                 className="mr-50"
@@ -125,29 +107,34 @@ class BrandList extends React.Component {
             },
         ],
     };
-    async componentDidMount() {
-        let { id } = this.props.match.params;
-        await axiosConfig.get(`/admin/viewone_brand/${id}`)
-            .then((response) => {
-                let rowData = response.data.data;
-                console.log(rowData);
-                this.setState({ rowData });
-            });
-    }
-    // eslint-disable-next-line no-dupe-class-members
-    async componentDidMount() {
-        await axiosConfig
-            .get("/admin/brandlist")
-            .then((response) => {
-                let rowData = response.data.data;
-                console.log(rowData);
-                this.setState({ rowData });
-            });
-    }
-
+    // async componentDidMount() {
+    //     await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
+    //         .then((response) => {
+    //             let rowData = response.data.data;
+    //             console.log(rowData);
+    //             this.setState({ rowData });
+    //         });
+    // }
+    // async componentDidMount() {
+    //     await axios
+    //         .get("http://35.154.86.59/api/user/allcustomer")
+    //         .then((response) => {
+    //             let rowData = response.data.data;
+    //             console.log(rowData);
+    //             this.setState({ rowData });
+    //         });
+    // }
+    // async componentDidMount() {
+    //   let { id } = this.props.match.params;
+    //   await axios
+    //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
+    //       headers: {
+    //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
+    //       },
+    //     })}
     async runthisfunction(id) {
         console.log(id);
-        await axiosConfig.delete(`/admin/del_brand/${id}`).then(
+        await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
             (response) => {
                 console.log(response);
             },
@@ -156,6 +143,7 @@ class BrandList extends React.Component {
             }
         );
     }
+
     onGridReady = (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;
@@ -183,36 +171,24 @@ class BrandList extends React.Component {
             console.log(rowData),
             (
                 <Row className="app-user-list">
-                    <Col sm="12"></Col>
+                    <Col sm="12">
+                        <Col>
+                            <h1 sm="12">
+                                <AddMedia />
+                            </h1>
+                        </Col>
+                    </Col>
                     <Col sm="12">
                         <Card>
-                            <Row className="m-2">
-                                <Col>
-                                    <h1 sm="6" className="float-left">
-                                        Brand List
-                                    </h1>
-                                </Col>
-                                <Col>
-                                    <Button style={{ marginRight: '-17rem' }}
-                                        className=" btn btn-danger float-right"
-                                        onClick={() => history.push("/app/freshlist/brand/BrandList")}
-                                    >
-                                        Back
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Route render={({ history }) => (
-                                        <Button
-                                            className="btn btn-danger float-right"
-                                            onClick={() => history.push("/app/freshlist/brand/addBrand")}
-                                        >
-                                            Add New
-                                        </Button>
-                                    )}
-                                    />
-                                </Col>
-                            </Row>
+
                             <CardBody>
+                                <Row>
+                                    <Col>
+                                        <h3 className="float-left">
+                                            Media
+                                        </h3>
+                                    </Col>
+                                </Row>
                                 {this.state.rowData === null ? null : (
                                     <div className="ag-theme-material w-100 my-2 ag-grid-table">
                                         <div className="d-flex flex-wrap justify-content-between align-items-center">
@@ -262,24 +238,7 @@ class BrandList extends React.Component {
                                                     </DropdownMenu>
                                                 </UncontrolledDropdown>
                                             </div>
-                                            <div className="d-flex flex-wrap justify-content-between mb-1">
-                                                <div className="table-input mr-1">
-                                                    <Input
-                                                        placeholder="search..."
-                                                        onChange={(e) =>
-                                                            this.updateSearchQuery(e.target.value)
-                                                        }
-                                                        value={this.state.value}
-                                                    />
-                                                </div>
-                                                <div className="export-btn">
-                                                    <Button.Ripple
-                                                        color="primary"
-                                                        onClick={() => this.gridApi.exportDataAsCsv()}>
-                                                        Export as CSV
-                                                    </Button.Ripple>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <ContextLayout.Consumer>
                                             {(context) => (
@@ -310,4 +269,4 @@ class BrandList extends React.Component {
         );
     }
 }
-export default BrandList;
+export default Media;

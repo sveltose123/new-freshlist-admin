@@ -92,10 +92,9 @@ const AddFeatureDeal = lazy(() =>
   import("./views/apps/freshlist/featuredeal/AddFeatureDeal"));
 //Gallery
 
-const Gallery = lazy(() =>
-  import("./views/apps/freshlist/gallery/Gallery"));
-const AddGallery = lazy(() =>
-  import("./views/apps/freshlist/gallery/AddGallery"));
+const Gallery = lazy(() => import("./views/apps/freshlist/gallery/Gallery"));
+const AddGallery = lazy(() => import("./views/apps/freshlist/gallery/AddGallery"));
+const Media = lazy(() => import("./views/apps/freshlist/gallery/Media"));
 
 //order
 const All = lazy(() =>
@@ -234,6 +233,9 @@ const AddHouseProduct = lazy(() =>
 const EditHouseProduct = lazy(() =>
   import("./views/apps/freshlist/house/EditHouseProduct")
 );
+const ViewHouseProduct = lazy(() =>
+  import("./views/apps/freshlist/house/ViewHouseProduct")
+);
 // Subscriber
 const SubscriberList = lazy(() =>
   import("./views/apps/freshlist/subscriber/SubscriberList")
@@ -304,6 +306,19 @@ const HubList = lazy(() => import("./views/apps/freshlist/hub/HubList"));
 const EditHub = lazy(() => import("./views/apps/freshlist/hub/EditHub"));
 const AddHub = lazy(() => import("./views/apps/freshlist/hub/AddHub"));
 const Time = lazy(() => import("./views/apps/freshlist/hub/Time"));
+
+// UNit
+const UnitList = lazy(() => import("./views/apps/freshlist/unit/UnitList"));
+const EditUnit = lazy(() => import("./views/apps/freshlist/unit/EditUnit"));
+const AddUnit = lazy(() => import("./views/apps/freshlist/unit/AddUnit"));
+// Batch
+const BatchList = lazy(() => import("./views/apps/freshlist/batch/BatchList"));
+const AddBatch = lazy(() => import("./views/apps/freshlist/batch/AddBatch"));
+
+const EditBatch = lazy(() => import("./views/apps/freshlist/batch/EditBatch"));
+
+
+
 
 const pendingPayment = lazy(() =>
   import("./views/apps/pendingPayment/PendingPayment")
@@ -532,7 +547,7 @@ const BadgePill = lazy(() =>
 const Progress = lazy(() =>
   import("./components/reactstrap/progress/Progress")
 );
-const Media = lazy(() => import("./components/reactstrap/media/MediaObject"));
+// const Media = lazy(() => import("./components/reactstrap/media/MediaObject"));
 const Spinners = lazy(() =>
   import("./components/reactstrap/spinners/Spinners")
 );
@@ -760,6 +775,9 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/app/freshlist/gallery/addGallery"
             component={AddGallery} />
+          <AppRoute
+            path="/app/freshlist/gallery/Media"
+            component={Media} />
 
           {/* order */}
           <AppRoute
@@ -917,7 +935,7 @@ class AppRouter extends React.Component {
             component={AddBrand}
           />
           <AppRoute
-            path="/app/freshlist/brand/editBrand"
+            path="/app/freshlist/brand/editBrand/:id"
             component={EditBrand}
           />
           {/* Product Attribute */}
@@ -930,7 +948,7 @@ class AppRouter extends React.Component {
             component={AddProductAttribute}
           />
           <AppRoute
-            path="/app/freshlist/attribute/editProductAttribute"
+            path="/app/freshlist/attribute/editProductAttribute/:id"
             component={EditProductAttribute}
           />
           {/* inhouse Product */}
@@ -943,8 +961,12 @@ class AppRouter extends React.Component {
             component={AddHouseProduct}
           />
           <AppRoute
-            path="/app/freshlist/house/editHouseProduct"
+            path="/app/freshlist/house/editHouseProduct/:id"
             component={EditHouseProduct}
+          />
+          <AppRoute
+            path="/app/freshlist/house/viewHouseProduct/:id"
+            component={ViewHouseProduct}
           />
           <AppRoute
             path="/app/freshlist/subscriber/subscriberList"
@@ -990,6 +1012,17 @@ class AppRouter extends React.Component {
             path="/app/freshlist/earning/driverEarning"
             component={DriverEarning}
           />
+          {/*Batch*/}
+          <AppRoute
+            path="/app/freshlist/batch/batchList"
+            component={BatchList}
+          />
+          <AppRoute
+            path="/app/freshlist/batch/editBatch"
+            component={EditBatch}
+          />
+          <AppRoute path="/app/freshlist/batch/addBatch" component={AddBatch} />
+
           {/* Profile */}
 
           <AppRoute path="/pages/profile/userProfile" component={userProfile} />
@@ -1078,7 +1111,7 @@ class AppRouter extends React.Component {
             component={HubList}
           />
           <AppRoute
-            path="/app/freshlist/hub/editHub"
+            path="/app/freshlist/hub/editHub/:id"
             component={EditHub}
           />
           <AppRoute
@@ -1086,10 +1119,22 @@ class AppRouter extends React.Component {
             component={AddHub}
           />
           <AppRoute
-            path="/app/freshlist/hub/Time"
+            path="/app/freshlist/hub/time"
             component={Time}
           />
-
+          {/* UNiT */}
+          <AppRoute
+            path="/app/freshlist/unit/unitList"
+            component={UnitList}
+          />
+          <AppRoute
+            path="/app/freshlist/unit/editUnit/:id"
+            component={EditUnit}
+          />
+          <AppRoute
+            path="/app/freshlist/unit/addUnit"
+            component={AddUnit}
+          />
 
 
 
@@ -1382,7 +1427,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/components/badges" component={Badge} />
           <AppRoute path="/components/pill-badges" component={BadgePill} />
           <AppRoute path="/components/progress" component={Progress} />
-          <AppRoute path="/components/media-objects" component={Media} />
+          {/* <AppRoute path="/components/media-objects" component={Media} /> */}
           <AppRoute path="/components/spinners" component={Spinners} />
           <AppRoute path="/components/toasts" component={Toasts} />
           <AppRoute

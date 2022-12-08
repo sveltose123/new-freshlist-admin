@@ -216,6 +216,18 @@ export class AddHub extends Component {
                                 </Col>
                                 <Col lg="6" md="6">
                                     <FormGroup>
+                                        <Label>Batch</Label>
+                                        <Input
+                                            type="text"
+                                            placeholder="Enter title Here"
+                                            name="desc"
+                                            value={this.state.desc}
+                                            onChange={this.changeHandler}
+                                        />
+                                    </FormGroup>
+                                </Col>
+                                <Col lg="6" md="6">
+                                    <FormGroup>
                                         <Label>Delivery Fee</Label>
                                         <Input
                                             type="text"

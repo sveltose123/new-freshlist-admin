@@ -91,152 +91,92 @@ class Gallery extends Component {
     };
     render() {
         return (
-            <div>
-                <Row>
-                    <Col lg="12">
-                        <Card>
-                            <Row className="m-2">
-                                <Col>
-                                    <h1 col-sm-6 className="float-left">
-                                        File Managner
-                                    </h1>
-                                </Col>
-                                <Col>
-                                    <Button style={{ marginRight: '-22rem' }}
-                                        className=" btn btn-danger float-right"
-                                        onClick={() => history.push("/app/freshlist/gallery/Gallery")}
-                                    >
-                                        Back
-                                    </Button>
-                                </Col>
-                                <Col>
-                                    <Route render={({ history }) => (
-                                        <Button
-                                            className="btn btn-primary float-right"
-                                            onClick={() => history.push("/app/freshlist/gallery/addGallery")}
+            <>
+                <div>
+                    <Row>
+                        <Col lg="12">
+                            <Card>
+                                <Row className="m-2">
+                                    <Col>
+                                        <h1 col-sm-6 className="float-left">
+                                            File Managner
+                                        </h1>
+                                    </Col>
+                                    <Col>
+                                        <Button style={{ marginRight: '-17rem' }}
+                                            className=" btn btn-danger float-right"
+                                            onClick={() => history.push("/app/freshlist/gallery/Gallery")}
                                         >
-                                            Add New
+                                            Back
                                         </Button>
-                                    )}
-                                    />
-                                </Col>
-                            </Row>
-                            <CardBody>
-                                <Form className="m-1" onSubmit={this.submitHandler}>
-                                    <Row>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Admin</h3>
-                                        </Col>
-
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Banner</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Brand</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Category</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Company</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Deal</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Delivery Man</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Notification</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Product</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Profile</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Refund</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Review</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Seller</h3>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Card className="filefolder">
-                                                <Link> <FcFolder size={100} /></Link>
-                                            </Card>
-                                            <h3 style={{ textAlign: 'center' }}>Shop</h3>
-                                        </Col>
-                                    </Row>
-                                    {/* <Row>
-                                        <Col lg="6" md="6" sm="6" className="mb-2">
-                                            <Button.Ripple
-                                                color="danger"
-                                                className="mr-1 mb-1 btn-danger-rgba"
-                                                type="reset"
-                                                value="Reset">
-                                                Reset
-                                            </Button.Ripple>
-                                            <Button.Ripple
-                                                color="primary"
-                                                type="submit"
-                                                className="mr-1 mb-1"
+                                    </Col>
+                                    <Col>
+                                        <Route render={({ history }) => (
+                                            <Button
+                                                className="btn btn-primary float-right"
+                                                onClick={() => history.push("/app/freshlist/gallery/addGallery")}
                                             >
-                                                Update
-                                            </Button.Ripple>
-                                        </Col>
-                                    </Row> */}
+                                                Add New
+                                            </Button>
+                                        )}
+                                        />
+                                    </Col>
+                                </Row>
+                                <CardBody>
+                                    <Form className="m-1" onSubmit={this.submitHandler}>
+                                        <Row>
+                                            <Col md={2}>
+                                                <Card className="filefolder">
+                                                    <Link> <FcFolder size={100} /></Link>
+                                                </Card>
+                                                <h3 style={{ textAlign: 'center' }}>Banner</h3>
+                                            </Col>
+                                            <Col md={2}>
+                                                <Card className="filefolder">
+                                                    <Link> <FcFolder size={100} /></Link>
+                                                </Card>
+                                                <h3 style={{ textAlign: 'center' }}>Product</h3>
+                                            </Col>
+                                        </Row>
+                                    </Form>
+                                </CardBody>
+                            </Card>
+                        </Col>
 
-                                </Form>
-                            </CardBody>
-                        </Card>
-                    </Col>
+                    </Row>
+                </div>
+                <div>
+                    <Card>
+                        <Row className="m-1">
+                            <Col >
+                                <h3 col-sm-6 className="float-left">
+                                    Images
+                                </h3>
+                            </Col>
 
-                </Row>
-            </div>
+                            {/* <div className="table-input mr-1">
+                                <Input
+                                    placeholder="search by Product..."
+                                    onChange={(e) =>
+                                        this.updateSearchQuery(e.target.value)
+                                    }
+                                    value={this.state.value}
+                                />
+                            </div> */}
+
+                        </Row>
+                        <CardBody>
+                            <Form className="m-1" onSubmit={this.submitHandler}>
+                                <Row className="mb-2">
+
+                                </Row>
+                            </Form>
+                        </CardBody>
+                    </Card>
+                </div>
+            </>
+
+
         );
     }
 }

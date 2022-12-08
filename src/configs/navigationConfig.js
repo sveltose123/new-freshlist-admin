@@ -204,6 +204,14 @@ const navigationConfig = [
     permissions: ["admin", "editor"],
     navLink: "/app/freshlist/attribute/ProductAttributeList",
   },
+  {
+    id: "unit",
+    title: "Unit",
+    type: "item",
+    icon: <FaGopuram size={15} />,
+    permissions: ["admin", "editor"],
+    navLink: "/app/freshlist/unit/UnitList",
+  },
 
   {
     id: "inhouseproduct",
@@ -370,6 +378,18 @@ const navigationConfig = [
         navLink: "/app/freshlist/delivery/DeliveryManList",
       },
     ]
+  },
+  {
+    type: "groupHeader",
+    groupTitle: "STOCK MANAGEMENT",
+  },
+  {
+    id: "batch",
+    title: "Batch",
+    type: "item",
+    icon: <FaCircle size={8} />,
+    permissions: ["admin", "editor"],
+    navLink: "/app/freshlist/batch/batchList",
   },
   {
     type: "groupHeader",
@@ -586,6 +606,14 @@ const navigationConfig = [
     icon: <TbTruckDelivery size={15} />,
     permissions: ["admin", "editor"],
     navLink: "/app/freshlist/gallery/gallery",
+  },
+  {
+    id: "media",
+    title: "Media",
+    type: "item",
+    icon: <TbTruckDelivery size={15} />,
+    permissions: ["admin", "editor"],
+    navLink: "/app/freshlist/gallery/Media",
   },
   {
     type: "groupHeader",

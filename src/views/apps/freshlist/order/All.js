@@ -344,7 +344,6 @@ class All extends React.Component {
                                         >
                                             <option value="select">--Select--</option>
                                             <option value="active-order">Active order</option>
-                                            <option value="date">Date</option>
                                             <option value="processing">Processing</option>
                                             <option value="packed">Packed</option>
                                             <option value="delivery">Out For Delivery</option>
@@ -455,7 +454,7 @@ class All extends React.Component {
                                             </UncontrolledDropdown>
                                         </div>
                                         <div className="d-flex flex-wrap justify-content-between mb-1">
-                                            <div className="table-input">
+                                            <div className="table-input mr-2">
                                                 <Input
                                                     placeholder="search..."
                                                     onChange={(e) =>

@@ -26,6 +26,7 @@ class HubList extends React.Component {
             resizable: true,
             suppressMenu: true,
         },
+        // eslint-disable-next-line no-sparse-arrays
         columnDefs: [
             {
                 headerName: "S.No",
@@ -36,34 +37,166 @@ class HubList extends React.Component {
             },
             {
                 headerName: "Name",
-                field: "image",
+                field: "category_name",
                 filter: true,
-                width: 80,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
-                        // eslint-disable-next-line jsx-a11y/alt-text
-                        <img className="w-50 h-50  rounded-circle" src={params.data.image} />
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.category_name}</span>
+                        </div>
+                    );
+                },
+            }, ,
+            {
+                headerName: "Order No.",
+                field: "category_name",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.category_name}</span>
+                        </div>
                     );
                 },
             },
             {
-                headerName: "Type",
-                field: "image",
+                headerName: "Hub Type",
+                field: "category_name",
                 filter: true,
-                width: 80,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
-                        // eslint-disable-next-line jsx-a11y/alt-text
-                        <img className="w-50 h-50  rounded-circle" src={params.data.image} />
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.category_name}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Phone No.",
+                field: "category_name",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.category_name}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Email",
+                field: "email",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.email}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Category",
+                field: "category",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.category}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Batch",
+                field: "batch",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.batch}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Address",
+                field: "address",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.address}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Delivery Zone",
+                field: "address",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.address}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Delivery Fee",
+                field: "address",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.address}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Delivery Time",
+                field: "address",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.address}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Description",
+                field: "desc",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div className="d-flex align-items-center cursor-pointer">
+                            <span>{params.data.desc}</span>
+                        </div>
                     );
                 },
             },
 
             {
-                headerName: " Created At",
+                headerName: "Created At",
                 field: "category_name",
                 filter: true,
-                width: 190,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">

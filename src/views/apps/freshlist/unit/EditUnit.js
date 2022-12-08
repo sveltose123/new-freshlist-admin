@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import {
   Card,
   CardBody,
@@ -13,18 +12,40 @@ import {
 } from "reactstrap";
 import { history } from "../../../../history";
 import axiosConfig from "../../../../axiosConfig";
-
-export class AddUnit extends Component {
-  constructor(props) {
+import { EditorState, convertToRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import "../../../../assets/scss/plugins/extensions/editor.scss";
+import draftToHtml from "draftjs-to-html";
+import "react-toastify/dist/ReactToastify.css";
+export class EditUnit extends Component {
+  constructor (props) {
     super(props);
-
     this.state = {
-      units_title: "",
+      units_name: "",
       value: "",
-      sortorder: "",
       desc: "",
-      status: "",
+
     };
+  }
+
+  componentDidMount() {
+    console.log(this.props.match.params);
+    let { id } = this.props.match.params;
+    axiosConfig
+      .get(`/admin/viewone_units/${id}`)
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          units_name: response.data.data.units_name,
+          desc: response.data.data.desc,
+          value: response.data.data.value,
+
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   changeHandler1 = (e) => {
@@ -33,15 +54,23 @@ export class AddUnit extends Component {
   changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  onEditorStateChange = (editorState) => {
+    this.setState({
+      editorState,
+      desc: draftToHtml(convertToRaw(editorState.getCurrentContent())),
+    });
+  };
+
   submitHandler = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.props.match.params , this.state);
+    let { id } = this.props.match.params;
 
     axiosConfig
-      .post("/addunits", this.state)
+      .post(`/admin/edit_units/${id}`, this.state)
       .then((response) => {
         console.log(response);
-        this.props.history.push("/app/products/unit/unitList");
+        this.props.history.push("/app/freshlist/unit/unitList");
       })
       .catch((error) => {
         console.log(error);
@@ -54,13 +83,13 @@ export class AddUnit extends Component {
           <Row className="m-2">
             <Col>
               <h1 col-sm-6 className="float-left">
-                Add New Unit
+                Edit
               </h1>
             </Col>
             <Col>
               <Button
                 className=" btn btn-danger float-right"
-                onClick={() => history.push("/app/products/unit/unitList")}
+                onClick={() => history.push("/app/freshlist/unit/unitList")}
               >
                 Back
               </Button>
@@ -75,8 +104,8 @@ export class AddUnit extends Component {
                     <Input
                       type="text"
                       placeholder="Enter Unit Title"
-                      name="units_title"
-                      value={this.state.units_title}
+                      name="units_name"
+                      value={this.state.units_name}
                       onChange={this.changeHandler}
                     />
                   </FormGroup>
@@ -94,56 +123,25 @@ export class AddUnit extends Component {
                     />
                   </FormGroup>
                 </Col>
-
-                <Col lg="6" md="6">
-                  <FormGroup>
-                    <Label>Sort Order</Label>
-                    <Input
-                      type="number"
-                      placeholder="Sort Order"
-                      name="sortorder"
-                      value={this.state.sortorder}
-                      onChange={this.changeHandler}
-                    />
-                  </FormGroup>
-                </Col>
-
                 <Col lg="6" md="6">
                   <FormGroup>
                     <Label>Description</Label>
-                    <Input
-                      type="textarea"
-                      placeholder="Description"
-                      name="desc"
-                      value={this.state.desc}
-                      onChange={this.changeHandler}
+                    <Editor
+                      toolbarClassName="demo-toolbar-absolute"
+                      wrapperClassName="demo-wrapper"
+                      editorClassName="demo-editor"
+                      editorState={this.state.editorState}
+                      onEditorStateChange={this.onEditorStateChange}
+                      toolbar={{
+                        image: {
+                          uploadCallback: this.uploadImageCallBack,
+                          previewImage: true,
+                          alt: { present: false, mandatory: false },
+                          uploadEnabled: true,
+                          inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
+                        },
+                      }}
                     />
-                  </FormGroup>
-                </Col>
-
-                <Col lg="6" md="6" sm="6" className="mb-2 mt-1">
-                  <FormGroup>
-                    <Label className="mb-1">Status</Label>
-                    <div
-                      className="form-label-group"
-                      onChange={(e) => this.changeHandler1(e)}
-                    >
-                      <input
-                        style={{ marginRight: "3px" }}
-                        type="radio"
-                        name="status"
-                        value="Active"
-                      />
-                      <span style={{ marginRight: "20px" }}>Active</span>
-
-                      <input
-                        style={{ marginRight: "3px" }}
-                        type="radio"
-                        name="status"
-                        value="Inactive"
-                      />
-                      <span style={{ marginRight: "3px" }}>Inactive</span>
-                    </div>
                   </FormGroup>
                 </Col>
               </Row>
@@ -153,7 +151,7 @@ export class AddUnit extends Component {
                   type="submit"
                   className="mr-1 mb-1"
                 >
-                  Add Unit
+                  Update Unit
                 </Button.Ripple>
               </Row>
             </Form>
@@ -164,4 +162,4 @@ export class AddUnit extends Component {
   }
 }
 
-export default AddUnit;
+export default EditUnit;

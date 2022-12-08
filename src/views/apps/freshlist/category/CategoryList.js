@@ -12,7 +12,7 @@ import { history } from "../../../../history";
 import "../../../../assets/scss/plugins/tables/_agGridStyleOverride.scss";
 import "../../../../assets/scss/pages/users.scss";
 import { Route, Link } from "react-router-dom";
-
+import ReactHtmlParser from "react-html-parser";
 
 class CategoryList extends React.Component {
     state = {
@@ -36,6 +36,18 @@ class CategoryList extends React.Component {
             },
             {
                 headerName: "Web Thumbnail",
+                field: "thumbnail_img",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        // eslint-disable-next-line jsx-a11y/alt-text
+                        <img className="w-50 h-50  rounded-circle" src={params.data.thumbnail_img} />
+                    );
+                },
+            },
+            {
+                headerName: "App Thumbnail",
                 field: "image",
                 filter: true,
                 width: 80,
@@ -47,7 +59,19 @@ class CategoryList extends React.Component {
                 },
             },
             {
-                headerName: "App Thumbnail",
+                headerName: "App Banner",
+                field: "image",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        // eslint-disable-next-line jsx-a11y/alt-text
+                        <img className="w-50 h-50  rounded-circle" src={params.data.image} />
+                    );
+                },
+            },
+            {
+                headerName: "Web Banner",
                 field: "image",
                 filter: true,
                 width: 80,
@@ -74,13 +98,26 @@ class CategoryList extends React.Component {
             },
             {
                 headerName: "Title",
-                field: "desc",
+                field: "title",
                 filter: true,
                 width: 80,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.desc}</span>
+                            <span>{params.data.title}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "URL",
+                field: "url",
+                filter: true,
+                width: 80,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.url}</span>
                         </div>
                     );
                 },
@@ -94,7 +131,7 @@ class CategoryList extends React.Component {
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.desc}</span>
+                            <span>{ReactHtmlParser(params.data.desc)}</span>
                         </div>
                     );
                 },
@@ -114,26 +151,26 @@ class CategoryList extends React.Component {
             },
             {
                 headerName: "Types",
-                field: "desc",
+                field: "type",
                 filter: true,
                 width: 80,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.desc}</span>
+                            <span>{params.data.type}</span>
                         </div>
                     );
                 },
             },
             {
                 headerName: "Featured",
-                field: "desc",
+                field: "feature",
                 filter: true,
                 width: 80,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.desc}</span>
+                            <span>{params.data.feature}</span>
                         </div>
                     );
                 },
@@ -210,7 +247,7 @@ class CategoryList extends React.Component {
     async runthisfunction(id) {
 
         console.log(id);
-        await axiosConfig.get(`/admin/del_one_category/${id}`).then(
+        await axiosConfig.delete(`/admin/del_one_category/${id}`).then(
             (response) => {
                 console.log(response);
             },

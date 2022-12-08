@@ -15,7 +15,7 @@ import {
 import { history } from "../../../../history";
 import axiosConfig from "../../../../axiosConfig";
 
-export class AddGallery extends Component {
+export class AddMedia extends Component {
     constructor (props) {
         super(props);
 
@@ -70,41 +70,41 @@ export class AddGallery extends Component {
     render() {
         return (
             <div>
-                <h1>Gallery</h1>
+
                 <div>
                     <Card>
                         <Row className="m-1">
-                            <Col><h2>Upload Product</h2></Col>
+                            <Col><h2>Upload Video</h2></Col>
                         </Row>
                         <CardBody>
                             <Form onSubmit={this.submitHandler}>
                                 <Row className="m-2">
                                     <Col lg="12">
                                         <FormGroup>
-                                            <Label>Product Image</Label>
-                                            <CustomInput
+                                            <Label>Product Video</Label>
+                                            <Input
                                                 required
-                                                type="file"
+                                                type="video"
                                                 name="bannertype"
-                                                placeholder="Upload image"
+                                                placeholder="Upload video"
                                                 value={this.state.bannertype}
                                                 onChange={this.changeHandler}>
 
-                                            </CustomInput>
+                                            </Input>
                                         </FormGroup>
                                     </Col>
                                     <Col lg="12" >
 
-                                        <Label>Banner Image</Label>
-                                        <CustomInput
+                                        <Label>Banner URL</Label>
+                                        <Input
                                             required
-                                            type="file"
+                                            type="url"
                                             name="bannertype"
                                             placeholder="Upload image"
                                             value={this.state.bannertype}
                                             onChange={this.changeHandler}>
 
-                                        </CustomInput>
+                                        </Input>
                                     </Col>
                                 </Row>
                                 <Row style={{ float: 'right' }}>
@@ -113,7 +113,7 @@ export class AddGallery extends Component {
                                         type="submit"
                                         className="mr-1 mb-1 "
                                     >
-                                        Upload
+                                        Add
                                     </Button.Ripple>
                                 </Row>
                             </Form>
@@ -124,4 +124,4 @@ export class AddGallery extends Component {
         );
     }
 }
-export default AddGallery;
+export default AddMedia;

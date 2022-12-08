@@ -3,8 +3,8 @@ import {
     Card, CardBody, Input, Row, Col, Button, UncontrolledDropdown,
     DropdownMenu, DropdownItem, DropdownToggle,
 } from "reactstrap";
-// import axiosConfig from "../../../axiosConfig";
-import axios from "axios";
+import axiosConfig from "../../../../axiosConfig";
+
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
 import { Edit, Trash2, ChevronDown, Eye } from "react-feather";
@@ -30,31 +30,124 @@ class HouseProductList extends React.Component {
                 headerName: "S.No",
                 valueGetter: "node.rowIndex + 1",
                 field: "node.rowIndex + 1",
-                width: 150,
+                width: 100,
                 filter: true,
             },
             {
-                headerName: "Product Name",
-                field: "customerId",
+                headerName: "Product Image",
+                field: "product_image",
                 filter: true,
-                width: 200,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.customerId}</span>
+                            <img className="w-50 h-50  rounded-circle" src={params.data.product_image} />
                         </div>
                     );
                 },
             },
             {
-                headerName: "Purchase Price",
-                field: "email	",
+                headerName: "Product Name",
+                field: "product_name",
                 filter: true,
-                width: 190,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.product_name}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Type",
+                field: "type",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.type}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Color",
+                field: "color",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.color}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Category",
+                field: "category",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.category}</span>
+                        </div>
+                    );
+                },
+            },
+
+            {
+                headerName: "Brand",
+                field: "brand",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.brand}</span>
+                        </div>
+                    );
+                },
+            },
+
+            {
+                headerName: "Model",
+                field: "model",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.model}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "MRP",
+                field: "mrp",
+                filter: true,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="d-flex align-items-center cursor-pointer">
-                            <span>{params.data.email}</span>
+                            <span>{params.data.mrp}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Buying Price",
+                field: "buying_price",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.buying_price}</span>
                         </div>
                     );
                 },
@@ -62,40 +155,102 @@ class HouseProductList extends React.Component {
 
             {
                 headerName: "Selling Price",
-                field: "lastname",
+                field: "selling_price",
                 filter: true,
-                width: 200,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div>
-                            <span>{params.data.lastname}</span>
+                            <span>{params.data.selling_price}</span>
                         </div>
                     );
                 },
             },
             {
-                headerName: "Status",
-                field: "status",
+                headerName: "Min.Selling Qty",
+                field: "min_selling_Q",
                 filter: true,
-                width: 150,
+                width: 100,
                 cellRendererFramework: (params) => {
-                    return params.value === "Block" ? (
-                        <div className="badge badge-pill badge-success">
-                            {params.data.status}
+                    return (
+                        <div>
+                            <span>{params.data.min_selling_Q}</span>
                         </div>
-                    ) : params.value === "Unblock" ? (
-                        <div className="badge badge-pill badge-warning">
-                            {params.data.status}
-                        </div>
-                    ) : null;
+                    );
                 },
             },
+            {
+                headerName: "Max.Selling Qty",
+                field: "max_selling_Q",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.max_selling_Q}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Reward Points",
+                field: "reward_points",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.reward_points}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Video Url",
+                field: "video_url",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.video_url}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "GST",
+                field: "gst_class",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.gst_class}</span>
+                        </div>
+                    );
+                },
+            },
+            {
+                headerName: "Stock",
+                field: "selling_price",
+                filter: true,
+                width: 100,
+                cellRendererFramework: (params) => {
+                    return (
+                        <div>
+                            <span>{params.data.selling_price}</span>
+                        </div>
+                    );
+                },
+            },
+
             {
                 headerName: "Actions",
                 field: "sortorder",
                 // eslint-disable-next-line no-dupe-keys
                 field: "transactions",
-                width: 150,
+                width: 100,
                 cellRendererFramework: (params) => {
                     return (
                         <div className="actions cursor-pointer">
@@ -110,7 +265,7 @@ class HouseProductList extends React.Component {
                                 className="mr-50"
                                 size="25px"
                                 color="blue"
-                                onClick={() => history.push("/app/freshlist/house/editHouseProduct")}
+                                onClick={() => history.push(`/app/freshlist/house/editHouseProduct/${params.data._id}`)}
                             />
                             <Trash2
                                 className="mr-50"
@@ -128,42 +283,37 @@ class HouseProductList extends React.Component {
             },
         ],
     };
-    // async componentDidMount() {
-    //     await axios.get(`http://35.154.86.59/api/user/view_onecust/${id}`)
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
-    // }
-    // async componentDidMount() {
-    //     await axios
-    //         .get("http://35.154.86.59/api/user/allcustomer")
-    //         .then((response) => {
-    //             let rowData = response.data.data;
-    //             console.log(rowData);
-    //             this.setState({ rowData });
-    //         });
-    // }
-    // // async componentDidMount() {
-    // //   let { id } = this.props.match.params;
-    // //   await axios
-    // //     .get(`/http://35.154.86.59/api/user/allcustomer/${id}`, {
-    // //       headers: {
-    // //         "auth-adtoken": localStorage.getItem("auth-adtoken"),
-    // //       },
-    // //     })}
-    // async runthisfunction(id) {
-    //     console.log(id);
-    //     await axios.get(`http://35.154.86.59/api/user/delcustomer/${id}`).then(
-    //         (response) => {
-    //             console.log(response);
-    //         },
-    //         (error) => {
-    //             console.log(error);
-    //         }
-    //     );
-    // }
+    async componentDidMount() {
+        let { id } = this.props.match.params;
+        await axiosConfig.get(`/admin/viewone_product/${id}`)
+            .then((response) => {
+                let rowData = response.data.data;
+                console.log(rowData);
+                this.setState({ rowData });
+            });
+    }
+    // eslint-disable-next-line no-dupe-class-members
+    async componentDidMount() {
+        await axiosConfig
+            .get("/admin/product_list")
+            .then((response) => {
+                let rowData = response.data.data;
+                console.log(rowData);
+                this.setState({ rowData });
+            });
+    }
+
+    async runthisfunction(id) {
+        console.log(id);
+        await axiosConfig.delete(`/admin/del_product/${id}`).then(
+            (response) => {
+                console.log(response);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+    }
     onGridReady = (params) => {
         this.gridApi = params.api;
         this.gridColumnApi = params.columnApi;

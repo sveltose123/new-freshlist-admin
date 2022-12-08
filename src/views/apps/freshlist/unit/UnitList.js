@@ -11,6 +11,7 @@ import {
   DropdownToggle,
   Button,
 } from "reactstrap";
+import ReactHtmlParser from "react-html-parser";
 import axiosConfig from "../../../../axiosConfig";
 import { ContextLayout } from "../../../../utility/context/Layout";
 import { AgGridReact } from "ag-grid-react";
@@ -37,24 +38,21 @@ class UnitList extends React.Component {
     columnDefs: [
       {
         headerName: "No.",
-        // valueGetter:"node.rowIndex + 1",
-        field: "sortorder",
+        valueGetter: "node.rowIndex + 1",
         width: 150,
         filter: true,
-        checkboxSelection: true,
-        headerCheckboxSelectionFilteredOnly: true,
-        headerCheckboxSelection: true,
+
       },
       {
-        headerName: "Unit Title",
-        field: "units_title",
+        headerName: "unit Title",
+        field: "units_name",
         filter: true,
         width: 200,
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
               <div className="ml-2 mr-4">
-                <span>{params.data.units_title}</span>
+                <span>{params.data.units_name}</span>
               </div>
             </div>
           );
@@ -81,29 +79,29 @@ class UnitList extends React.Component {
         cellRendererFramework: (params) => {
           return (
             <div className="d-flex align-items-center cursor-pointer">
-              <span>{params.data.desc}</span>
+              <span>{ReactHtmlParser(params.data.desc)}</span>
             </div>
           );
         },
       },
-      {
-        headerName: "Status",
-        field: "status",
-        filter: true,
-        width: 150,
+      // {
+      //   headerName: "Status",
+      //   field: "status",
+      //   filter: true,
+      //   width: 150,
 
-        cellRendererFramework: (params) => {
-          return params.value === "Active" ? (
-            <div className="badge badge-pill badge-success ml-2">
-              {params.data.status}
-            </div>
-          ) : params.value === "Inactive" ? (
-            <div className="badge badge-pill badge-danger">
-              {params.data.status}
-            </div>
-          ) : null;
-        },
-      },
+      //   cellRendererFramework: (params) => {
+      //     return params.value === "Active" ? (
+      //       <div className="badge badge-pill badge-success ml-2">
+      //         {params.data.status}
+      //       </div>
+      //     ) : params.value === "Inactive" ? (
+      //       <div className="badge badge-pill badge-danger">
+      //         {params.data.status}
+      //       </div>
+      //     ) : null;
+      //   },
+      // },
       {
         headerName: "Actions",
         field: "transactions",
@@ -113,13 +111,15 @@ class UnitList extends React.Component {
             <div className="actions cursor-pointer">
               <Edit
                 className="mr-75 "
-                size={20}
+                size={25}
+                color="blue"
                 onClick={() =>
-                  history.push(`/app/products/unit/editUnit/${params.data._id}`)
+                  history.push(`/app/freshlist/unit/editUnit/${params.data._id}`)
                 }
               />
               <Trash2
-                size={20}
+                size={25}
+                color="red"
                 onClick={() => {
                   let selectedData = this.gridApi.getSelectedRows();
                   console.log(selectedData);
@@ -135,7 +135,7 @@ class UnitList extends React.Component {
   };
 
   async componentDidMount() {
-    await axiosConfig.get("/viewallunits").then((response) => {
+    await axiosConfig.get("/admin/getall_units").then((response) => {
       let rowData = response.data.data;
       console.log(rowData);
       this.setState({ rowData });
@@ -144,7 +144,7 @@ class UnitList extends React.Component {
 
   async runthisfunction(id) {
     console.log(id);
-    await axiosConfig.get(`/delunits/${id}`).then((response) => {
+    await axiosConfig.get(`/admin/del_units/${id}`).then((response) => {
       console.log(response);
     });
   }
@@ -178,7 +178,7 @@ class UnitList extends React.Component {
     return (
       <Row className="app-user-list">
         <Col sm="12">
-         
+
         </Col>
         <Col sm="12">
           <Card>
@@ -191,7 +191,7 @@ class UnitList extends React.Component {
               <Col>
                 <Button
                   className=" btn btn-danger float-right"
-                  onClick={() => history.push("/app/products/unit/addUnit")}
+                  onClick={() => history.push("/app/freshlist/unit/addUnit")}
                 >
                   Add New Unit
                 </Button>
@@ -207,11 +207,11 @@ class UnitList extends React.Component {
                           {this.gridApi
                             ? this.state.currenPageSize
                             : "" * this.state.getPageSize -
-                              (this.state.getPageSize - 1)}{" "}
+                            (this.state.getPageSize - 1)}{" "}
                           -{" "}
                           {this.state.rowData.length -
                             this.state.currenPageSize * this.state.getPageSize >
-                          0
+                            0
                             ? this.state.currenPageSize * this.state.getPageSize
                             : this.state.rowData.length}{" "}
                           of {this.state.rowData.length}
